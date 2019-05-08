@@ -28,10 +28,6 @@ export default {
     slug: {
       type: String,
       default: 'about'
-    },
-    image: {
-      type: String,
-      default: 'default.png'
     }
   }
 }

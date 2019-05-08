@@ -1,8 +1,12 @@
 <template>
-  <section style="" class="contents-child p-6">
-    <div v-for="(lang, i) in allSnippets" :key="i" class="code  bg-white shadow p-5 rounded">
-      <h4 class="font-semibold">{{ lang.title }}</h4>
-      <prism contenteditable class="code__block " language="javascript">{{ lang.code }}</prism>
+  <section class="contents-child">
+    <div
+      v-for="(snip, i) in allSnippets"
+      :key="i"
+      class="code bg-white my-6 mx-auto shadow p-5 rounded"
+    >
+      <h4 class="font-semibold">{{ snip.title }}</h4>
+      <prism contenteditable class="code__block " language="javascript">{{ snip.code }}</prism>
     </div>
   </section>
 </template>
@@ -17,13 +21,11 @@ export default {
   data() {
     return {
       allSnippets: [],
-      code:
-        "routes =     {\n      path: '/404',\n      name: '404',\n      component: require('./views/_404').default\n    },\n    // Redirect any unmatched routes to the 404 page.\n    {\n      path: '*',\n      redirect: '404'\n    }"
+      code: ''
     }
   },
   methods: {
-    makeReqToApi() {
-      let lang = this.$route.params.lang
+    makeReqToApi(lang) {
       fetch(`https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/lang/${lang}.json`)
         .then(response => {
           if (response.status !== 200) {
@@ -40,13 +42,14 @@ export default {
         })
     }
   },
-  created() {
-    this.makeReqToApi()
-    console.log(this.$route.params)
-    console.log('contentChild creted')
-  },
-  destroyed() {
-    console.log('contentChild destroyed')
+  watch: {
+    '$route.params.lang': {
+      handler(lang) {
+        this.makeReqToApi(lang)
+      },
+      deep: true,
+      immediate: true
+    }
   },
   components: {
     Prism

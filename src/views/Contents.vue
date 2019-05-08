@@ -5,11 +5,10 @@
       <side-nav>
         <list-lang
           v-for="lang in allLanguags"
-          :key="lang.name"
+          :key="lang.slug"
+          :slug="lang.slug"
           :langName="lang.name"
           :langDetail="lang.detail"
-          :slug="lang.slug"
-          :image="lang.imgae"
         ></list-lang>
       </side-nav>
 

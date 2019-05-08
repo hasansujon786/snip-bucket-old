@@ -1,6 +1,14 @@
 <template>
   <div class="contentDefault">
-    <h1>contentDefault</h1>
+    <div class="text-center font-mono mt-20">
+      <h1 class="text-4xl tracking-tighter">dev's note</h1>
+      <h2 class="text-sm font-bold tracking-wide text-gray-500 mb-2">
+        A effort to do something good
+      </h2>
+      <p class="text-sm text-gray-500">
+        <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, adipisci! -->
+      </p>
+    </div>
   </div>
 </template>
 
