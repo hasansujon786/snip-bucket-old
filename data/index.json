@@ -1,14 +1,14 @@
 [
   {
-    "langName": "vue.js",
-    "langDetail": "The progressive web-frametork",
-    "slug": "aboug",
+    "name": "vue.js",
+    "detail": "The progressive web-frametork",
+    "slug": "about",
     "imgage": "vue"
   },
   {
-    "langName": "React.js",
-    "langDetail": "A liabray for making uis",
-    "slug": "aboug",
+    "name": "React.js",
+    "detail": "A liabray for making uis",
+    "slug": "youtube",
     "imgage": "react"
   }
 ]
