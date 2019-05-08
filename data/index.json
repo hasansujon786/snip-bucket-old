@@ -2,13 +2,13 @@
   {
     "name": "vue.js",
     "detail": "The progressive web-frametork",
-    "slug": "vuejs",
+    "slug": "vue",
     "imgage": "vue"
   },
   {
     "name": "React.js",
     "detail": "A liabray for making uis",
-    "slug": "reactjs",
+    "slug": "react",
     "imgage": "react"
   }
 ]
