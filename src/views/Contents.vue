@@ -61,7 +61,6 @@ export default {
           }
           // Examine the text in the response
           response.json().then(data => {
-            console.log(data)
             this.allLanguags = data
           })
         })

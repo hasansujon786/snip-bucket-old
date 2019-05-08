@@ -1,37 +1,21 @@
 <template>
-  <section style="" class="contents p-6">
-    <div class="">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae optio quam perferendis
-      consectetur numquam qui temporibus, nisi inventore error repellat praesentium dolores expedita
-      quae? Beatae, eveniet. Placeat doloribus vel possimus.
-    </div>
-    <div class="home h-screen  ">
-      <h1 class="text-6xl ">hasan></h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos incidunt natus nihil unde
-        autem porro hic, quibusdam doloremque perspiciatis expedita nobis accusamus! Sit soluta
-        neque, aperiam ipsum, quasi dignissimos distinctio perferendis nam temporibus excepturi
-        accusantium natus aliquam doloremque vitae quisquam deserunt debitis quidem reiciendis id
-        porro inventore et officia? Atque deleniti nobis aliquam tempora esse culpa obcaecati dolor!
-        Fugit quas tenetur quo ipsam repellendus quos facere? Facilis repellat, sed sequi possimus
-        doloribus consectetur totam corporis praesentium! Sequi, laudantium! Blanditiis minus iure
-        facilis accusantium similique aliquam dolor vel saepe? Quos amet earum accusamus voluptates
-        hic praesentium repellendus molestiae quaerat illo. Eius.
-      </p>
-    </div>
-    <div class="">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae optio quam perferendis
-      consectetur numquam qui temporibus, nisi inventore error repellat praesentium dolores expedita
-      quae? Beatae, eveniet. Placeat doloribus vel possimus.
+  <section style="" class="contents-child p-6">
+    <div v-for="(lang, i) in allSnippets" :key="i" class="bg-white shadow p-5 rounded">
+      <h4 class="font-semibold">{{ lang.title }}</h4>
+      <code class="text-pink-300">
+        {{ lang.code }}
+      </code>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'contents',
+  name: 'contents-child',
   data() {
-    return {}
+    return {
+      allSnippets: []
+    }
   },
   methods: {
     makeReqToApi() {
@@ -44,8 +28,7 @@ export default {
           }
           // Examine the text in the response
           response.json().then(data => {
-            console.log(data)
-            this.allLanguags = data
+            this.allSnippets = data
           })
         })
         .catch(err => {
