@@ -1,14 +1,10 @@
 <template>
   <div
-    class="side-nav bg-white block border-r-3 border-gray-300 flex hidden lg:block"
+    class="side-nav bg-white border-r-3 border-gray-300 flex hidden lg:block"
     style="flex: 0 0 250px"
   >
     <ul class="nav-items overflow-y-scroll h-full">
-      <li v-for="(item, i) in 11" :key="i" class="hover:bg-gray-300">
-        <router-link to="/about" class="border-b p-4 inline-block">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit
-        </router-link>
-      </li>
+      <slot></slot>
     </ul>
   </div>
 </template>
