@@ -4,7 +4,13 @@
       :to="{ name: 'contents-child', params: { lang: slug } }"
       class="border-b py-5 px-3 inline-flex items-center w-full"
     >
-      <figure class="bg-gray-400 w-10 h-10"></figure>
+      <figure class="w-10 h-10">
+        <img
+          class="object-cover w-full h-full"
+          :src="require(`@/assets/img/lang/${logo}.png`)"
+          :alt="langName"
+        />
+      </figure>
       <div class="pl-3">
         <h3 class="text-sm font-semibold">{{ langName }}</h3>
         <p class="text-xs text-gray-500">{{ langDetail }}</p>
@@ -28,6 +34,10 @@ export default {
     slug: {
       type: String,
       default: 'about'
+    },
+    logo: {
+      type: String,
+      default: 'default-logo'
     }
   }
 }

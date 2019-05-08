@@ -5,13 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    allLangList: ['hasan', 'sujon', 'sorker']
+    currentContent: ['hasan', 'sujon', 'sorker']
   },
   mutations: {},
   actions: {},
   getters: {
-    getAllLangList: state => {
-      return state.allLangList
+    getCurrentContent: state => {
+      return state.currentContent
     }
   }
 })

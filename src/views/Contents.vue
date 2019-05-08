@@ -9,13 +9,17 @@
           :slug="lang.slug"
           :langName="lang.name"
           :langDetail="lang.detail"
+          :logo="lang.logo"
         ></list-lang>
       </side-nav>
 
       <!-- content -->
       <div class="flex-1">
         <div class="scrolable overflow-y-scroll h-full">
-          <router-view></router-view>
+          <router-view
+            :makeReqToApiForContent="makeReqToApiForContent"
+            :response="currentContent"
+          ></router-view>
         </div>
       </div>
       <!-- content end -->
@@ -36,7 +40,9 @@ export default {
   name: 'Contents-page',
   data() {
     return {
-      allLanguags: []
+      allLanguags: [],
+      currentContent: {},
+      test: {}
     }
   },
   props: {
@@ -51,7 +57,7 @@ export default {
     listLang: ListLang
   },
   methods: {
-    makeReqToApi() {
+    makeReqToLangList() {
       fetch('https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/index.json')
         .then(response => {
           if (response.status !== 200) {
@@ -66,10 +72,27 @@ export default {
         .catch(err => {
           console.log('Fetch Error :-S', err)
         })
+    },
+    makeReqToApiForContent(lang) {
+      // this.test = this.fetchNow()
+      fetch(`https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/lang/${lang}.json`)
+        .then(response => {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' + response.status)
+            return
+          }
+          // Examine the text in the response
+          response.json().then(data => {
+            this.currentContent = data
+          })
+        })
+        .catch(err => {
+          console.log('Fetch Error :-S', err)
+        })
     }
   },
   created() {
-    this.makeReqToApi()
+    this.makeReqToLangList()
   }
 }
 </script>

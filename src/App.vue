@@ -13,7 +13,8 @@ export default {
 
 <style lang="scss">
 body {
-  overflow-y: hidden;
+  // overflow-y: hidden;
+  // background-color: #f7fafc;
 }
 
 .scrolable {

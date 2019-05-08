@@ -26,7 +26,8 @@ export default new Router({
         {
           path: ':lang',
           name: 'contents-child',
-          component: () => import(/* webpackChunkName: "about" */ './components/ContentsChild.vue')
+          component: () => import(/* webpackChunkName: "about" */ './components/ContentsChild.vue'),
+          props: true
         }
       ]
     },
