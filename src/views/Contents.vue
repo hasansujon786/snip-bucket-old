@@ -16,7 +16,7 @@
       <!-- content -->
       <div class="flex-1">
         <div class="scrolable overflow-y-scroll h-full">
-          <slot></slot>
+          <router-view></router-view>
         </div>
       </div>
       <!-- content end -->
@@ -34,7 +34,7 @@ import SideNav from '@/components/SideNav.vue'
 import ListLang from '@/components/ListLang.vue'
 
 export default {
-  name: 'default-layout',
+  name: 'Contents-page',
   data() {
     return {
       allLanguags: []
@@ -71,8 +71,7 @@ export default {
     }
   },
   created() {
-    // this.makeReqToApi()
-    console.log('app created')
+    this.makeReqToApi()
   }
 }
 </script>

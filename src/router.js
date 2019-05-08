@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Contents from './views/Contents.vue'
 
 Vue.use(Router)
 
@@ -14,6 +15,18 @@ export default new Router({
       component: Home
     },
     {
+      path: '/contents',
+      name: 'contents',
+      component: Contents,
+      children: [
+        {
+          path: ':lang',
+          name: 'contents-child',
+          component: () => import(/* webpackChunkName: "about" */ './components/ContentsChild.vue')
+        }
+      ]
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
@@ -25,6 +38,16 @@ export default new Router({
       path: '/youtube',
       name: 'youtube',
       component: () => import(/* webpackChunkName: "youtube" */ './views/Youtube.vue')
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: require('./views/_404').default
+    },
+    // Redirect any unmatched routes to the 404 page.
+    {
+      path: '*',
+      redirect: '404'
     }
   ]
 })

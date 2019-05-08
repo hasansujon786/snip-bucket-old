@@ -1,6 +1,9 @@
 <template>
   <li class="listLanguage hover:bg-gray-300">
-    <router-link :to="{ name: slug }" class="border-b py-5 px-3 inline-flex items-center w-full">
+    <router-link
+      :to="{ name: 'contents-child', params: { lang: slug } }"
+      class="border-b py-5 px-3 inline-flex items-center w-full"
+    >
       <figure class="bg-gray-400 w-10 h-10"></figure>
       <div class="pl-3">
         <h3 class="text-sm font-semibold">{{ langName }}</h3>

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar w-full flex items-center justify-between flex-wrap bg-white p-4">
     <!-- brand -->
-    <router-link to="/" class="flex items-center flex-no-shrink text-black mr-6">
+    <router-link to="/contents" class="flex items-center flex-no-shrink text-black mr-6">
       <svg
         class="fill-current h-8 w-8 mr-2"
         width="54"

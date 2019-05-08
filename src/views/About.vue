@@ -1,22 +1,20 @@
 <template>
-  <Layout scrollBgL="#ebf8ff">
-    <section class="bg-blue-100 flex-1 about h-screen">
-      <div class="about container max-w-xl px-2 mx-auto">
-        <div
-          class="flex items-end justify-between text-blue-900 border-b-2 border-gray-500 font-bold py-6"
-        >
-          <h2 class="text-2xl">Change Plan</h2>
-          <h4>Cancel Your Plan</h4>
-        </div>
-        <div class="flex pt-8 flex-wrap justify-around md:justify-between">
-          <SelecteblePlan v-model="activeCard" planName="groth" />
-          <SelecteblePlan v-model="activeCard" planName="bloom" />
-          <SelecteblePlan v-model="activeCard" planName="flower" />
-          <SelecteblePlan v-model="activeCard" planName="blosum" />
-        </div>
+  <section class="bg-blue-100 flex-1 about h-screen">
+    <div class="about container max-w-xl px-2 mx-auto">
+      <div
+        class="flex items-end justify-between text-blue-900 border-b-2 border-gray-500 font-bold py-6"
+      >
+        <h2 class="text-2xl">Change Plan</h2>
+        <h4>Cancel Your Plan</h4>
       </div>
-    </section>
-  </Layout>
+      <div class="flex pt-8 flex-wrap justify-around md:justify-between">
+        <SelecteblePlan v-model="activeCard" planName="groth" />
+        <SelecteblePlan v-model="activeCard" planName="bloom" />
+        <SelecteblePlan v-model="activeCard" planName="flower" />
+        <SelecteblePlan v-model="activeCard" planName="blosum" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
