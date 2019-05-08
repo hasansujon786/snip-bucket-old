@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import Layout from './layout/default.vue'
+
+Vue.component('Layout', Layout)
 
 Vue.config.productionTip = false
 

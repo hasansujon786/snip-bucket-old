@@ -1,29 +1,51 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="font-sans">
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import './assets/css/main.css'
+export default {
+  name: 'app'
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+</script>
+
+<style lang="scss">
+body {
+  overflow: hidden;
+}
+
+.scrolable {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-left: 4px solid var(--scoll-bg-l, white);
+    border-right: 4px solid var(--scoll-bg-r, white);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d8dde4;
+    border-left: 3px solid var(--scoll-bg-l, white);
+    border-right: 3px solid var(--scoll-bg-r, white);
+
+    &:hover {
+      background-color: tomato;
     }
+  }
+}
+
+.dbug {
+  *:not(path):not(g) {
+    /*! debug.css | MIT License | zaydek.github.com/debug.css */
+    color: hsla(210, 100%, 100%, 0.9) !important;
+    background: hsla(210, 100%, 50%, 0.5) !important;
+    outline: solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
+
+    box-shadow: none !important;
   }
 }
 </style>
