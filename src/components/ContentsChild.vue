@@ -35,6 +35,10 @@ export default {
   },
   created() {
     console.log(this.$route.params)
+    console.log('contentChild creted')
+  },
+  destroyed() {
+    console.log('contentChild destroyed')
   }
 }
 </script>
