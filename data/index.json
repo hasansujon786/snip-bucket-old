@@ -1,12 +1,16 @@
 [
   {
+    "id": "01",
     "slug": "vue",
     "name": "vue.js",
-    "detail": "Vue.js cheatSheet"
+    "detail": "Vue.js cheatSheet",
+    "logo": "vue"
   },
   {
+    "id": "02",
     "slug": "react",
     "name": "React.js",
-    "detail": "A JS library for building UIs"
+    "detail": "A JS library for building UIs",
+    "logo": "react"
   }
 ]
