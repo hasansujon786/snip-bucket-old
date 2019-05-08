@@ -13,7 +13,7 @@ export default {
 
 <style lang="scss">
 body {
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .scrolable {

@@ -1,6 +1,6 @@
 [
   {
     "title": "Class component sample",
-    "code": "class Welcome extends React.Component { render() { return <h1>Hello, {this.props.name}</h1>; } }"
+    "code": "class Welcome extends React.Component {\n  render() {\n    return <h1>Hello, {this.props.name}</h1>\n  }\n}"
   }
 ]

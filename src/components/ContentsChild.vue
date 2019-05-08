@@ -1,20 +1,24 @@
 <template>
   <section style="" class="contents-child p-6">
-    <div v-for="(lang, i) in allSnippets" :key="i" class="bg-white shadow p-5 rounded">
+    <div v-for="(lang, i) in allSnippets" :key="i" class="code  bg-white shadow p-5 rounded">
       <h4 class="font-semibold">{{ lang.title }}</h4>
-      <code class="text-pink-300">
-        {{ lang.code }}
-      </code>
+      <prism contenteditable class="code__block " language="javascript">{{ lang.code }}</prism>
     </div>
   </section>
 </template>
 
 <script>
+import 'prismjs'
+import 'prismjs/themes/prism.css'
+import Prism from 'vue-prism-component'
+
 export default {
   name: 'contents-child',
   data() {
     return {
-      allSnippets: []
+      allSnippets: [],
+      code:
+        "routes =     {\n      path: '/404',\n      name: '404',\n      component: require('./views/_404').default\n    },\n    // Redirect any unmatched routes to the 404 page.\n    {\n      path: '*',\n      redirect: '404'\n    }"
     }
   },
   methods: {
@@ -43,8 +47,31 @@ export default {
   },
   destroyed() {
     console.log('contentChild destroyed')
+  },
+  components: {
+    Prism
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.code {
+  max-width: 600px;
+  &:hover &__block::-webkit-scrollbar-thumb {
+    background-color: rgb(194, 194, 194);
+  }
+  &__block {
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #e2e8f0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #e2e8f0;
+    }
+  }
+}
+</style>
