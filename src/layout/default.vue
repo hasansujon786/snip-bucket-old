@@ -46,18 +46,20 @@ export default {
   },
   methods: {
     makeReqToApi() {
-      // fetch('/data/index2.json')
-      //   .then(response => response.json())
-      //   .then(data => {
-      //     console.log(data) // Prints result from `response.json()` in getRequest
-      //   })
-      //   .catch(error => console.error(error))
-
-      // fetch('https://jsonplaceholder.typicode.com/todos')
-
-      fetch('data/index2.json')
-        .then(response => response.json())
-        .then(json => console.log(json))
+      fetch('https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/index.json')
+        .then(function(response) {
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' + response.status)
+            return
+          }
+          // Examine the text in the response
+          response.json().then(function(data) {
+            console.log(data)
+          })
+        })
+        .catch(function(err) {
+          console.log('Fetch Error :-S', err)
+        })
     }
   },
   created() {
