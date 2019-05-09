@@ -1,7 +1,9 @@
 <template>
-  <div class="youtube-page bg-blue-100">
+  <div class="youtube-page p-24">
     <h1>youtube-page</h1>
-    <img src="@/assets/logo.png" alt="" />
+    <div class="box bg-blue-200 flex justify-center items-center">
+      <h1 class="text-4xl">hey</h1>
+    </div>
   </div>
 </template>
 
@@ -14,4 +16,11 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.box {
+  width: 200px;
+  height: 200px;
+  transition: all 0.5s ease-in-out;
+  // transform: ;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <li class="listLanguage hover:bg-gray-300">
+  <li class="listLanguage hover:bg-gray-300 w-full">
     <router-link
       :to="{ name: 'contents-child', params: { lang: slug } }"
       class="border-b py-5 px-3 inline-flex items-center w-full"
@@ -11,7 +11,7 @@
           :alt="langName"
         />
       </figure>
-      <div class="pl-3">
+      <div class="pl-3" v-show="!isShrink">
         <h3 class="text-sm font-semibold">{{ langName }}</h3>
         <p class="text-xs text-gray-500">{{ langDetail }}</p>
       </div>
@@ -38,9 +38,17 @@ export default {
     logo: {
       type: String,
       default: 'default-logo'
+    },
+    isShrink: {
+      type: Boolean,
+      required: false
     }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.listLanguage {
+  max-width: 220px;
+}
+</style>

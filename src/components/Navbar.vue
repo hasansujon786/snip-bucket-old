@@ -1,5 +1,11 @@
 <template>
   <nav class="navbar w-full flex items-center justify-between flex-wrap bg-white p-4">
+    <button @click="handleShrinkMenu('left')" class="left-btn p-3 rounded-full  focus:outline-none">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+      </svg>
+    </button>
     <!-- brand -->
     <router-link to="/contents" class="flex items-center flex-no-shrink text-black mr-6">
       <svg
@@ -90,6 +96,12 @@ export default {
       ]
     }
   },
+  props: {
+    handleShrinkMenu: {
+      type: Function,
+      required: false
+    }
+  },
   methods: {
     search() {
       alert(this.searchQuery)
@@ -106,6 +118,11 @@ export default {
 @media screen and (min-width: 1024px) {
   .navbar__links {
     display: flex !important;
+  }
+}
+.left-btn {
+  &:active {
+    background: #e2e8f0;
   }
 }
 </style>

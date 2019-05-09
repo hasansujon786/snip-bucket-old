@@ -1,8 +1,8 @@
 <template>
   <div ref="layout" class="default-layout h-screen" :style="'--scoll-bg-l: ' + scrollBgL">
-    <Navbar class="border-b-2 border-gray-300" />
+    <Navbar :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300" />
     <section class="flex h-full" style="max-height: calc(100vh - 81px);">
-      <side-nav>
+      <side-nav style="" class="">
         <list-lang
           v-for="lang in allLanguags"
           :key="lang.slug"
@@ -10,6 +10,7 @@
           :langName="lang.name"
           :langDetail="lang.detail"
           :logo="lang.logo"
+          :isShrink="isLeftMenuShrink"
         ></list-lang>
       </side-nav>
 
@@ -42,7 +43,8 @@ export default {
     return {
       allLanguags: [],
       currentContent: {},
-      test: {}
+      test: {},
+      isLeftMenuShrink: false
     }
   },
   props: {
@@ -89,6 +91,11 @@ export default {
         .catch(err => {
           console.log('Fetch Error :-S', err)
         })
+    },
+    handleShrinkMenu(side) {
+      if (side === 'left') {
+        this.isLeftMenuShrink = !this.isLeftMenuShrink
+      }
     }
   },
   created() {
