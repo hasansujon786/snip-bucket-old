@@ -16,6 +16,10 @@ body {
   // overflow-y: hidden;
   // background-color: #f7fafc;
 }
+.search-text-highlight {
+  background: #68d391;
+  color: white;
+}
 
 .scrolable {
   &::-webkit-scrollbar {

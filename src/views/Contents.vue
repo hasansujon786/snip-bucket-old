@@ -2,10 +2,8 @@
   <div ref="layout" class="default-layout h-screen" :style="'--scoll-bg-l: ' + scrollBgL">
     <!-- Navbar -->
     <nav-bar :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
-      <search-box @handle-input="testInput"></search-box>
+      <search-box :allitemArr="allitemArr"></search-box>
     </nav-bar>
-    <!-- {{ matchToContentTitle }}
-    <div class="border-4"></div> -->
 
     <section class="flex h-full" style="max-height: calc(100vh - 81px);">
       <!-- left sidebar -->
@@ -21,13 +19,13 @@
         ></list-lang>
       </side-nav>
 
-      <!-- content -->
+      <!-- content page -->
       <div class="flex-1">
         <div class="scrolable overflow-y-scroll h-full">
           <router-view
             :makeReqToApiForContent="makeReqToApiForContent"
             :response="response"
-            :contents="matchToContentTitle"
+            :contents="searchArr"
           ></router-view>
         </div>
       </div>
@@ -52,10 +50,10 @@ export default {
     return {
       allLanguags: [],
       response: {},
-      responseContents: [],
       isLeftMenuShrink: false,
       searchArr: ['one', 'two', 'there', 'four', 'five', 'six'],
-      searchQuery: ''
+      searchQuery: '',
+      allitemArr: []
     }
   },
   props: {
@@ -98,7 +96,7 @@ export default {
           // Examine the text in the response
           response.json().then(data => {
             this.response = data
-            this.responseContents = data.contents
+            this.makeAllContentsToAnArr()
           })
         })
         .catch(err => {
@@ -110,31 +108,21 @@ export default {
         this.isLeftMenuShrink = !this.isLeftMenuShrink
       }
     },
-    testInput(data) {
-      this.searchQuery = data
-    }
-  },
-  computed: {
-    responseItems() {
-      if (this.responseContents.length) {
-        return this.responseContents.filter(content => {
-          return content.items
+    makeAllContentsToAnArr() {
+      this.allitemArr = []
+      this.response.contents.forEach(content => {
+        this.allitemArr.push(content.title)
+        content.items.forEach(item => {
+          this.allitemArr.push(item.definition)
         })
-      }
-      return 'nothing'
-    },
-    matchToContentTitle() {
-      return this.responseContents.filter(item => {
-        return item.title.toLowerCase().match(this.searchQuery.toLowerCase())
       })
     }
   },
+  computed: {},
   created() {
     this.makeReqToLangList()
   },
-  mounted() {
-    setTimeout(() => {}, 3000)
-  }
+  mounted() {}
 }
 </script>
 

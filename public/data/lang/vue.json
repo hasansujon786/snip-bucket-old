@@ -1,0 +1,68 @@
+{
+  "id": "vue",
+  "title": "vue.js",
+  "slug": "vue",
+  "description": "Vue.js Cheatsheet",
+  "theme": "#41B883",
+  "contents": [
+    {
+      "title": "Directives",
+      "items": [
+        {
+          "definition": "Show or hide elements programmatically",
+          "code": "v-if/v-show"
+        },
+        {
+          "definition": "HTML attribute binding",
+          "code": "v-bind"
+        },
+        {
+          "definition": "Two-way way data binding",
+          "code": "v-model"
+        },
+        {
+          "definition": "HTML event binding",
+          "code": "v-on:click"
+        },
+        {
+          "definition": "List rendering",
+          "code": "v-for"
+        }
+      ]
+    },
+    {
+      "title": "Binding",
+      "items": [
+        {
+          "definition": "dynamic url binding",
+          "code": ":href='url'"
+        },
+        {
+          "definition": "dynamic url bingin",
+          "code": ":class='{active: isActive}'"
+        },
+        {
+          "definition": "dynamic style binding",
+          "code": ":style='{color: activeColor}'"
+        }
+      ]
+    },
+    {
+      "title": "events",
+      "items": [
+        {
+          "definition": "Bind event on form submits",
+          "code": "<form @submit.prevent='addUser'>..."
+        },
+        {
+          "definition": "ইভেন্ট একবার সংঘটিত করতে",
+          "code": "<a @click.once='doThis'></a>"
+        },
+        {
+          "definition": "Stop propagation on HTML elements",
+          "code": "<a @click.stop='doThis'></a>"
+        }
+      ]
+    }
+  ]
+}

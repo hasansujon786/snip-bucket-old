@@ -1,13 +1,26 @@
 <template>
-  <form @submit.prevent="search" class="mr-40 w-1/2">
+  <form @submit.prevent="search" class="mr-40 relative w-1/2">
     <input
-      class="border border-gray-300 bg-gray-100 py-3 text-sm px-5 text-gray-500 focus:text-gray-600 w-full outline-none rounded-lg focus:border-gray-400"
-      placeholder='Search the docs (Press "/" to focus)'
+      class="input border z-10 relative py-3 text-sm px-5 text-gray-500 w-full outline-none rounded-lg  bg-white shadow focus:text-gray-600"
+      placeholder='Search the docs (Press " Ctrl + / " to focus)'
       type="text"
-      @input="handleInput"
       v-model="searchQuery"
       ref="searchInput"
     />
+    <div
+      class="result-bar absolute border overflow-y-scroll z-0 -mt-2 pt-3 rounded-t-none text-gray-600 px-4 pb-2 rounded-lg w-full shadow bg-white hidden"
+    >
+      <a
+        v-for="(item, i) in filteredArray"
+        :key="i"
+        @click="handleExit(item)"
+        @keyup.enter="handleExit(item)"
+        class="text-sm mb-2 block cursor-pointer"
+        tabindex="0"
+      >
+        {{ item }}
+      </a>
+    </div>
   </form>
 </template>
 
@@ -19,12 +32,33 @@ export default {
       searchQuery: ''
     }
   },
+  props: {
+    allitemArr: {
+      type: Array,
+      required: false
+    }
+  },
   methods: {
-    handleInput() {
-      this.$emit('handle-input', this.searchQuery)
+    handleExit(item) {
+      this.searchQuery = ''
+      item = item
+        .toLowerCase()
+        .split(' ')
+        .join('')
+
+      let el = document.getElementById(item)
+      el.scrollIntoView()
+      el.classList.toggle('search-text-highlight')
+      setTimeout(() => {
+        el.classList.toggle('search-text-highlight')
+      }, 400)
     },
     search() {
-      alert(this.searchQuery)
+      let el = document.getElementById(this.searchQuery)
+      if (el) {
+        this.searchQuery = ''
+        el.scrollIntoView()
+      }
     },
     focusSearch(e) {
       if (e.keyCode == 191 && e.ctrlKey) {
@@ -32,7 +66,13 @@ export default {
       }
     }
   },
-
+  computed: {
+    filteredArray() {
+      return this.allitemArr.filter(item => {
+        return item.toLowerCase().match(this.searchQuery.toLowerCase())
+      })
+    }
+  },
   mounted() {
     document.addEventListener('keyup', this.focusSearch)
   },
@@ -42,4 +82,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+input:not(:placeholder-shown) ~ .result-bar {
+  display: block;
+}
+// input:focus ~ .result-bar {
+//   display: block;
+// }
+.result-bar {
+  max-height: 250px;
+}
+</style>

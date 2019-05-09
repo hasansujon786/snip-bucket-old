@@ -4,14 +4,14 @@
     <input type="text" class="border" v-model="query" />
 
     <ul class="mt-5">
-      <li v-for="(num, i) in numbers" :key="i">
+      <!-- <li v-for="(num, i) in numbers" :key="i">
         {{ num }}
       </li>
       <hr class="border" />
 
       <li v-for="(city, c) in citys" :key="city">
         {{ city }}
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>

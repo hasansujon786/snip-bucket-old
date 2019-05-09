@@ -10,12 +10,32 @@
       <!-- code block -->
       <div
         class="code bg-white my-6 mx-auto shadow p-5 rounded"
-        v-for="(cont, i) in contents"
+        v-for="(cont, i) in response.contents"
         :key="i"
       >
-        <h4 class="font-semibold mb-6">{{ cont.title }}</h4>
+        <h4
+          class="font-semibold mb-6"
+          :id="
+            cont.title
+              .toLowerCase()
+              .split(' ')
+              .join('')
+          "
+        >
+          {{ cont.title }}
+        </h4>
         <div v-for="(item, i) in cont.items" :key="i">
-          <p class="text-sm text-gray-600">{{ item.definition }}</p>
+          <p
+            class="text-sm text-gray-600"
+            :id="
+              item.definition
+                .toLowerCase()
+                .split(' ')
+                .join('')
+            "
+          >
+            {{ item.definition }}
+          </p>
           <prism contenteditable class="code__block rounded-lg" language="javascript">{{
             item.code
           }}</prism>
