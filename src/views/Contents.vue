@@ -1,7 +1,14 @@
 <template>
   <div ref="layout" class="default-layout h-screen" :style="'--scoll-bg-l: ' + scrollBgL">
-    <Navbar :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300" />
+    <!-- Navbar -->
+    <nav-bar :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
+      <search-box @handle-input="testInput"></search-box>
+    </nav-bar>
+    <!-- {{ matchToContentTitle }}
+    <div class="border-4"></div> -->
+
     <section class="flex h-full" style="max-height: calc(100vh - 81px);">
+      <!-- left sidebar -->
       <side-nav style="" class="">
         <list-lang
           v-for="lang in allLanguags"
@@ -19,7 +26,8 @@
         <div class="scrolable overflow-y-scroll h-full">
           <router-view
             :makeReqToApiForContent="makeReqToApiForContent"
-            :response="currentContent"
+            :response="response"
+            :contents="matchToContentTitle"
           ></router-view>
         </div>
       </div>
@@ -36,15 +44,18 @@
 import Navbar from '@/components/Navbar.vue'
 import SideNav from '@/components/SideNav.vue'
 import ListLang from '@/components/ListLang.vue'
+import SearchBoxVue from '@/components/SearchBox.vue'
 
 export default {
   name: 'Contents-page',
   data() {
     return {
       allLanguags: [],
-      currentContent: {},
-      test: {},
-      isLeftMenuShrink: false
+      response: {},
+      responseContents: [],
+      isLeftMenuShrink: false,
+      searchArr: ['one', 'two', 'there', 'four', 'five', 'six'],
+      searchQuery: ''
     }
   },
   props: {
@@ -55,8 +66,9 @@ export default {
   },
   components: {
     sideNav: SideNav,
-    Navbar,
-    listLang: ListLang
+    navBar: Navbar,
+    listLang: ListLang,
+    searchBox: SearchBoxVue
   },
   methods: {
     makeReqToLangList() {
@@ -85,7 +97,8 @@ export default {
           }
           // Examine the text in the response
           response.json().then(data => {
-            this.currentContent = data
+            this.response = data
+            this.responseContents = data.contents
           })
         })
         .catch(err => {
@@ -96,10 +109,31 @@ export default {
       if (side === 'left') {
         this.isLeftMenuShrink = !this.isLeftMenuShrink
       }
+    },
+    testInput(data) {
+      this.searchQuery = data
+    }
+  },
+  computed: {
+    responseItems() {
+      if (this.responseContents.length) {
+        return this.responseContents.filter(content => {
+          return content.items
+        })
+      }
+      return 'nothing'
+    },
+    matchToContentTitle() {
+      return this.responseContents.filter(item => {
+        return item.title.toLowerCase().match(this.searchQuery.toLowerCase())
+      })
     }
   },
   created() {
     this.makeReqToLangList()
+  },
+  mounted() {
+    setTimeout(() => {}, 3000)
   }
 }
 </script>

@@ -10,7 +10,7 @@
       <!-- code block -->
       <div
         class="code bg-white my-6 mx-auto shadow p-5 rounded"
-        v-for="(cont, i) in response.contents"
+        v-for="(cont, i) in contents"
         :key="i"
       >
         <h4 class="font-semibold mb-6">{{ cont.title }}</h4>
@@ -35,6 +35,10 @@ export default {
   props: {
     response: {
       type: Object,
+      required: true
+    },
+    contents: {
+      type: undefined,
       required: true
     },
     makeReqToApiForContent: {

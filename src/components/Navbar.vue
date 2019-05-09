@@ -51,16 +51,7 @@
       <!-- Nav Links end -->
 
       <!-- search box -->
-
-      <form @submit.prevent="search" class="mr-40 w-1/2">
-        <input
-          class="border border-gray-300 bg-gray-100 py-3 text-sm px-5 text-gray-500 focus:text-gray-600 w-full outline-none rounded-lg focus:border-gray-400"
-          placeholder='Search the docs (Press "/" to focus)'
-          type="text"
-          v-model="searchQuery"
-        />
-      </form>
-
+      <slot></slot>
       <!-- search box end -->
 
       <!-- Download button -->
@@ -83,7 +74,6 @@ export default {
   name: 'navbar',
   data() {
     return {
-      searchQuery: '',
       links: [
         {
           name: 'About',
@@ -102,11 +92,8 @@ export default {
       required: false
     }
   },
-  methods: {
-    search() {
-      alert(this.searchQuery)
-    }
-  }
+  methods: {},
+  components: {}
 }
 </script>
 
