@@ -1,7 +1,7 @@
 <template>
   <div class="contentDefault">
     <div class="text-center font-mono mt-20">
-      <h1 class="text-4xl tracking-tighter">dev's note</h1>
+      <h1 class="text-4xl tracking-tighter">snip bucket</h1>
       <h2 class="text-sm font-bold tracking-wide text-gray-500 mb-2">
         A effort to do something good
       </h2>

@@ -1,25 +1,44 @@
 <template>
-  <nav class="navbar w-full flex items-center justify-between flex-wrap bg-white p-4">
-    <button @click="handleShrinkMenu('left')" class="left-btn p-3 rounded-full  focus:outline-none">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <title>Menu</title>
-        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+  <nav class="navbar w-full flex items-center justify-between flex-wrap bg-white py-4 px-3">
+    <button
+      @click="handleShrinkMenu('left')"
+      class="left-btn text-green-900 on-active-gray w-12 h-12 mr-2 flex items-center justify-center rounded-full focus:outline-none"
+    >
+      <svg class="stroke-current" width="26" height="22" viewBox="0 0 32 22">
+        <g transform="translate(-25 -25.444)">
+          <path
+            d="M0,.5H30"
+            transform="translate(26 25.944)"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <path
+            d="M0,.5H30"
+            transform="translate(26 35.942)"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+          <path
+            d="M0,.5H30"
+            transform="translate(26 45.944)"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="2"
+          />
+        </g>
       </svg>
     </button>
     <!-- brand -->
-    <router-link to="/contents" class="flex items-center flex-no-shrink text-black mr-6">
-      <!-- <svg
-        class="fill-current h-8 w-8 mr-2"
-        width="54"
-        height="54"
-        viewBox="0 0 54 54"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"
-        />
-      </svg> -->
-      <span class="font-semibold font-mono text-2xl tracking-tighter">dev's note</span>
+    <router-link to="/" class="text-gray-900 mr-6">
+      <span class="font-semibold font-mono text-2xl tracking-tighter">snip bucket</span>
     </router-link>
     <!-- brand end -->
 
@@ -105,11 +124,6 @@ export default {
 @media screen and (min-width: 1024px) {
   .navbar__links {
     display: flex !important;
-  }
-}
-.left-btn {
-  &:active {
-    background: #e2e8f0;
   }
 }
 </style>

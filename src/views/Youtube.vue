@@ -1,5 +1,5 @@
 <template>
-  <div class="youtube-page p-24">
+  <div class="youtube-page p-24 bg-gray-600 h-screen">
     <h1>youtube-page</h1>
     <input type="text" class="border" v-model="query" />
 
@@ -13,6 +13,14 @@
         {{ city }}
       </li> -->
     </ul>
+
+    <div class="icons-box text-red-400">
+      <h1>Icons</h1>
+      <i class="icon icon-menu fill-current"></i>
+      <i class="icon icon-search"></i>
+      <i class="icon icon-cross"></i>
+      <i class="icon icon-arrow-down"></i>
+    </div>
   </div>
 </template>
 
@@ -50,5 +58,8 @@ export default {
   height: 200px;
   transition: all 0.5s ease-in-out;
   // transform: ;
+}
+.icons-box i {
+  margin-right: 2rem;
 }
 </style>

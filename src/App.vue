@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="font-sans">
+  <div id="app" class="font-sans ">
     <router-view />
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
 
 <style lang="scss">
 body {
-  // overflow-y: hidden;
+  overflow-y: hidden;
   // background-color: #f7fafc;
 }
 .search-text-highlight {
@@ -23,19 +23,15 @@ body {
 
 .scrolable {
   &::-webkit-scrollbar {
-    width: 10px;
+    width: 3px;
   }
 
   &::-webkit-scrollbar-track {
     background: #e2e8f0;
-    border-left: 4px solid var(--scoll-bg-l, white);
-    border-right: 4px solid var(--scoll-bg-r, white);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #d8dde4;
-    border-left: 3px solid var(--scoll-bg-l, white);
-    border-right: 3px solid var(--scoll-bg-r, white);
+    background: #c1c3c7;
 
     &:hover {
       background-color: tomato;
@@ -52,5 +48,18 @@ body {
 
     box-shadow: none !important;
   }
+}
+
+.on-active-gray {
+  &:active {
+    background: #e2e8f071;
+  }
+}
+
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>

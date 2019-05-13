@@ -1,11 +1,14 @@
 <template>
-  <div ref="layout" class="default-layout h-screen" :style="'--scoll-bg-l: ' + scrollBgL">
+  <section
+    class="default-layout max-h-screen h-screen flex flex-col"
+    :style="'--scoll-bg-l: ' + scrollBgL"
+  >
     <!-- Navbar -->
-    <nav-bar :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
+    <nav-bar v-if="true" :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
       <search-box :allitemArr="allitemArr"></search-box>
     </nav-bar>
 
-    <section class="flex h-full" style="max-height: calc(100vh - 81px);">
+    <section v-if="true" class="flex flex-1 h-full max-h-full" style="">
       <!-- left sidebar -->
       <side-nav style="" class="">
         <list-lang
@@ -20,7 +23,7 @@
       </side-nav>
 
       <!-- content page -->
-      <div class="flex-1">
+      <div class="flex-1 h-full">
         <div class="scrolable overflow-y-scroll h-full">
           <router-view
             :makeReqToApiForContent="makeReqToApiForContent"
@@ -31,17 +34,19 @@
       </div>
       <!-- content end -->
 
-      <side-nav>
-        <list-lang v-for="(item, i) in 12" :key="i"></list-lang>
+      <!-- right sidebar -->
+      <side-nav style="max-width: 220px;">
+        <list-topic :topics="response.topics"></list-topic>
       </side-nav>
     </section>
-  </div>
+  </section>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
 import SideNav from '@/components/SideNav.vue'
 import ListLang from '@/components/ListLang.vue'
+import ListTopic from '@/components/ListTopic.vue'
 import SearchBoxVue from '@/components/SearchBox.vue'
 
 export default {
@@ -66,11 +71,14 @@ export default {
     sideNav: SideNav,
     navBar: Navbar,
     listLang: ListLang,
+    listTopic: ListTopic,
     searchBox: SearchBoxVue
   },
   methods: {
     makeReqToLangList() {
-      fetch('https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/index.json')
+      // get the list of all the languages
+      // fetch('https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/index.json')
+      fetch('/data/index.json')
         .then(response => {
           if (response.status !== 200) {
             console.log('Looks like there was a problem. Status Code: ' + response.status)
@@ -86,8 +94,11 @@ export default {
         })
     },
     makeReqToApiForContent(lang) {
-      // this.test = this.fetchNow()
-      fetch(`https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/lang/${lang}.json`)
+      // active on language page page load
+
+      // get all the content of the selected language
+      // fetch(`https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/lang/${lang}.json`)
+      fetch(`/data/lang/${lang}.json`)
         .then(response => {
           if (response.status !== 200) {
             console.log('Looks like there was a problem. Status Code: ' + response.status)
@@ -104,25 +115,26 @@ export default {
         })
     },
     handleShrinkMenu(side) {
+      // contross the sidebar to shrink or enlarge
       if (side === 'left') {
         this.isLeftMenuShrink = !this.isLeftMenuShrink
       }
     },
     makeAllContentsToAnArr() {
+      // reset all previous indexes
       this.allitemArr = []
-      this.response.contents.forEach(content => {
-        this.allitemArr.push(content.title)
-        content.items.forEach(item => {
-          this.allitemArr.push(item.definition)
+      // (i) for search Index make all random data to array
+      this.response.topics.forEach(topic => {
+        this.allitemArr.push(topic.title)
+        topic.items.forEach(item => {
+          this.allitemArr.push(item.description)
         })
       })
     }
   },
-  computed: {},
   created() {
     this.makeReqToLangList()
-  },
-  mounted() {}
+  }
 }
 </script>
 

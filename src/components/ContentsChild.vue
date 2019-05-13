@@ -1,40 +1,40 @@
 <template>
-  <section class="contents-child pb-12">
+  <section class="contents-child pb-12 bg-gray-110">
     <div v-if="response.title">
       <!-- title -->
-      <div class="text-center font-mono mt-6">
+      <div class="text-center font-mono pt-6">
         <h1 class="text-4xl tracking-tighter">{{ response.title }}</h1>
         <p class="text-sm font-bold tracking-wide text-gray-500 mb-2">{{ response.description }}</p>
       </div>
 
       <!-- code block -->
       <div
-        class="code bg-white my-6 mx-auto shadow p-5 rounded"
-        v-for="(cont, i) in response.contents"
+        class="code bg-white my-6 mx-auto p-5 rounded shadow"
+        v-for="(topic, i) in response.topics"
         :key="i"
       >
         <h4
           class="font-semibold mb-6"
           :id="
-            cont.title
+            topic.title
               .toLowerCase()
               .split(' ')
               .join('')
           "
         >
-          {{ cont.title }}
+          {{ topic.title }}
         </h4>
-        <div v-for="(item, i) in cont.items" :key="i">
+        <div v-for="(item, i) in topic.items" :key="i">
           <p
             class="text-sm text-gray-600"
             :id="
-              item.definition
+              item.description
                 .toLowerCase()
                 .split(' ')
                 .join('')
             "
           >
-            {{ item.definition }}
+            {{ item.description }}
           </p>
           <prism contenteditable class="code__block rounded-lg" language="javascript">{{
             item.code
@@ -55,10 +55,6 @@ export default {
   props: {
     response: {
       type: Object,
-      required: true
-    },
-    contents: {
-      type: undefined,
       required: true
     },
     makeReqToApiForContent: {
@@ -83,7 +79,7 @@ export default {
 
 <style lang="scss" scoped>
 .code {
-  max-width: 600px;
+  max-width: 720px;
   &:hover &__block::-webkit-scrollbar-thumb {
     background-color: rgb(194, 194, 194);
   }
