@@ -9,7 +9,7 @@
 
       <!-- code block -->
       <div
-        class="code bg-white my-6 mx-auto p-5 rounded shadow"
+        class="code bg-white my-6 mx-auto p-5 rounded shadow border"
         v-for="(topic, i) in response.topics"
         :key="i"
       >

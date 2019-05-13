@@ -11,7 +11,7 @@
           :alt="langName"
         />
       </figure>
-      <div class="pl-3" v-show="isShrink">
+      <div class="pl-3 w-40" v-show="isShrink">
         <h3 class="text-sm font-semibold">{{ langName }}</h3>
         <p class="text-xs text-gray-500">{{ langDetail }}</p>
       </div>

@@ -10,7 +10,7 @@
 
     <section v-if="true" class="flex flex-1 h-full max-h-full" style="height: calc(100% - 82px);">
       <!-- left sidebar -->
-      <side-nav style="" class="">
+      <side-nav>
         <list-lang
           v-for="lang in allLanguags"
           :key="lang.slug"
@@ -35,7 +35,7 @@
       <!-- content end -->
 
       <!-- right sidebar -->
-      <side-nav style="max-width: 220px;">
+      <side-nav>
         <list-topic :topics="response.topics"></list-topic>
       </side-nav>
     </section>
