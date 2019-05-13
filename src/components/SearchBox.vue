@@ -1,6 +1,5 @@
 <template>
   <form @submit.prevent="search" class="mr-40 relative w-1/2">
-    <!-- <i class="icon icon-search opacity-25 ml-3 absolute z-30 abs-center-h"></i> -->
     <input
       class="input border z-10 relative py-3 text-sm px-5 text-gray-500 w-full outline-none rounded-lg  bg-white shadow focus:text-gray-600"
       placeholder='Search the docs (Press " Ctrl + / " to focus)'

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="default-layout max-h-screen h-screen flex flex-col"
+    class="default-layout bg-blue-400 max-h-screen h-screen"
     :style="'--scoll-bg-l: ' + scrollBgL"
   >
     <!-- Navbar -->
@@ -8,7 +8,7 @@
       <search-box :allitemArr="allitemArr"></search-box>
     </nav-bar>
 
-    <section v-if="true" class="flex flex-1 h-full max-h-full" style="">
+    <section v-if="true" class="flex flex-1 h-full max-h-full" style="height: calc(100% - 82px);">
       <!-- left sidebar -->
       <side-nav style="" class="">
         <list-lang
@@ -23,7 +23,7 @@
       </side-nav>
 
       <!-- content page -->
-      <div class="flex-1 h-full">
+      <div class="w-full">
         <div class="scrolable overflow-y-scroll h-full">
           <router-view
             :makeReqToApiForContent="makeReqToApiForContent"
@@ -137,5 +137,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped></style>

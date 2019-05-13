@@ -1,5 +1,5 @@
 <template>
-  <section class="contents-child pb-12 bg-gray-110">
+  <section class="contents-child pb-12 bg-gray-110 min-h-full">
     <div v-if="response.title">
       <!-- title -->
       <div class="text-center font-mono pt-6">

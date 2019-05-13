@@ -14,7 +14,7 @@ export default {
 <style lang="scss">
 body {
   overflow-y: hidden;
-  // background-color: #f7fafc;
+  max-height: 100vh;
 }
 .search-text-highlight {
   background: #68d391;
@@ -36,6 +36,12 @@ body {
     &:hover {
       background-color: tomato;
     }
+  }
+}
+
+@supports (scrollbar-width: thin) {
+  .scrolable {
+    scrollbar-width: thin;
   }
 }
 
