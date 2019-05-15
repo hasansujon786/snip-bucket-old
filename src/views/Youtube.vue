@@ -21,6 +21,14 @@
       <i class="icon icon-cross"></i>
       <i class="icon icon-arrow-down"></i>
     </div>
+    <hr />
+    <div>
+      <ui-button></ui-button>
+      <ui-button color="blue"></ui-button>
+      <ui-button color="green"></ui-button>
+      <ui-button color="red"></ui-button>
+      <ui-button color="teal"></ui-button>
+    </div>
   </div>
 </template>
 

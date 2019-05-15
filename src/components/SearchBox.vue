@@ -1,14 +1,14 @@
 <template>
   <form @submit.prevent="search" class="mr-40 relative w-1/2">
     <input
-      class="input border z-10 relative py-3 text-sm px-5 text-gray-500 w-full outline-none rounded-lg  bg-white shadow focus:text-gray-600"
+      class="input border z-10 relative py-3 text-sm px-6 text-gray-600 w-full outline-none rounded-full bg-gray-110 shadow focus:border-gray-500"
       placeholder='Search the docs (Press " Ctrl + / " to focus)'
       type="text"
       v-model="searchQuery"
       ref="searchInput"
     />
     <i
-      class="search-icon opacity-25 text-gray-900 stroke-current mr-3 right-0 absolute z-30 abs-center-h"
+      class="search-icon opacity-25  text-gray-900 stroke-current mr-5 right-0 absolute z-30 abs-center-h"
     >
       <svg width="21" height="21" viewBox="0 0 21 21">
         <g transform="translate(-408.986 -30.5)">
@@ -38,7 +38,7 @@
     <button
       type="button"
       @click="searchQuery = ''"
-      class="clear-btn bg-transpaent mr-2 flex items-center justify-center abs-center-h right-0 rounded-full hidden absolute z-10 w-8 on-active-gray h-8 text-gray-900  focus:outline-none focus:text-red-500 hover:text-red-500"
+      class="clear-btn bg-transpaent mr-3 flex items-center justify-center abs-center-h right-0 rounded-full hidden absolute z-10 w-8 on-active-gray h-8 text-gray-900  focus:outline-none focus:text-red-500 hover:text-red-500"
     >
       <svg
         class="fill-current stroke-current"
@@ -166,10 +166,5 @@ input:not(:placeholder-shown) {
   a:first-child {
     margin-top: 1rem;
   }
-}
-
-.abs-center-h {
-  top: 50%;
-  transform: translateY(-50%);
 }
 </style>
