@@ -23,11 +23,11 @@
     </div>
     <hr />
     <div>
-      <ui-button></ui-button>
-      <ui-button color="blue"></ui-button>
-      <ui-button color="green"></ui-button>
-      <ui-button color="red"></ui-button>
-      <ui-button color="teal"></ui-button>
+      <ui-button>default</ui-button>
+      <ui-button color="blue">blue</ui-button>
+      <ui-button color="green">green</ui-button>
+      <ui-button color="red">red</ui-button>
+      <ui-button color="teal">teal</ui-button>
     </div>
   </div>
 </template>

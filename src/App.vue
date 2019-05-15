@@ -13,7 +13,7 @@ export default {
 
 <style lang="scss">
 body {
-  // overflow-y: hidden;
+  // overflow-y: scroll;
   // max-height: 100vh;
 }
 .search-text-highlight {
@@ -74,8 +74,8 @@ body {
   transform: translateY(-50%);
 }
 
-.transition-all {
-  transition: all 0.3s ease-in-out;
+.transition-fast {
+  transition: all 0.1s ease-in-out;
 }
 .border-r-3 {
   border-right-width: 3px;

@@ -56,7 +56,42 @@
     "logo": "react"
   },
   {
-    "id": "09",
+    "id": "10",
+    "slug": "react",
+    "title": "Next.js",
+    "detail": "A JS library for building UIs",
+    "logo": "react"
+  },
+  {
+    "id": "11",
+    "slug": "react",
+    "title": "Next.js",
+    "detail": "A JS library for building UIs",
+    "logo": "react"
+  },
+  {
+    "id": "12",
+    "slug": "react",
+    "title": "Next.js",
+    "detail": "A JS library for building UIs",
+    "logo": "react"
+  },
+  {
+    "id": "13",
+    "slug": "react",
+    "title": "Next.js",
+    "detail": "A JS library for building UIs",
+    "logo": "react"
+  },
+  {
+    "id": "14",
+    "slug": "react",
+    "title": "Next.js",
+    "detail": "A JS library for building UIs",
+    "logo": "react"
+  },
+  {
+    "id": "15",
     "slug": "react",
     "title": "Next.js",
     "detail": "A JS library for building UIs",
