@@ -1,14 +1,11 @@
 <template>
-  <section
-    class="default-layout bg-blue-400 max-h-screen h-screen"
-    :style="'--scoll-bg-l: ' + scrollBgL"
-  >
+  <section class="default-layout max-h-screen h-screen">
     <!-- Navbar -->
     <nav-bar v-if="true" :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
       <search-box :allitemArr="allitemArr"></search-box>
     </nav-bar>
 
-    <popup-menu></popup-menu>
+    <popup-menu v-if="showPopup" :showPinMenu="showPinMenu" @save="getPinnedItems"></popup-menu>
     <section
       v-if="true"
       class="flex flex-1 h-full max-h-full relative"
@@ -17,7 +14,7 @@
       <!-- left sidebar -->
       <side-nav class="relative">
         <list-lang
-          v-for="(lang, i) in allLanguags"
+          v-for="(lang, i) in pinnedItems"
           :key="i"
           :slug="lang.slug"
           :langName="lang.title"
@@ -26,7 +23,7 @@
           :isShrink="isLeftMenuShrink"
         ></list-lang>
         <!-- actions -->
-        <sidebarActions :pin="showPinMenu" />
+        <sidebarActions :showPinMenu="showPinMenu" />
       </side-nav>
 
       <!-- content page -->
@@ -35,7 +32,6 @@
           <router-view
             :makeReqToApiForContent="makeReqToApiForContent"
             :response="response"
-            :contents="searchArr"
           ></router-view>
         </div>
       </div>
@@ -62,18 +58,14 @@ export default {
   name: 'Contents-page',
   data() {
     return {
+      pinnedItems: [],
       allLanguags: [],
       response: {},
       isLeftMenuShrink: false,
       searchArr: ['one', 'two', 'there', 'four', 'five', 'six'],
       searchQuery: '',
-      allitemArr: []
-    }
-  },
-  props: {
-    scrollBgL: {
-      type: String,
-      default: 'white'
+      allitemArr: [],
+      showPopup: false
     }
   },
   components: {
@@ -86,23 +78,30 @@ export default {
     popupMenu: PopupMenuVue
   },
   methods: {
-    makeReqToLangList() {
-      // get the list of all the languages
-      // fetch('https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/index.json')
-      fetch('/data/index.json')
-        .then(response => {
-          if (response.status !== 200) {
-            console.log('Looks like there was a problem. Status Code: ' + response.status)
-            return
-          }
-          // Examine the text in the response
-          response.json().then(data => {
-            this.allLanguags = data
-          })
-        })
-        .catch(err => {
-          console.log('Fetch Error :-S', err)
-        })
+    getPinnedItems() {
+      let jsondata = [
+        {
+          id: '01',
+          slug: 'vue',
+          title: 'vue.js',
+          detail: 'Vue.js ofline',
+          logo: 'vue'
+        },
+        {
+          id: '02',
+          slug: 'react',
+          title: 'React.js',
+          detail: 'A JS library for building UIs',
+          logo: 'react'
+        }
+      ]
+      const pinnedItems = JSON.parse(localStorage.getItem('pinnedItems'))
+      if (pinnedItems && pinnedItems.length) {
+        this.pinnedItems = pinnedItems
+      } else {
+        this.pinnedItems = jsondata
+        localStorage.setItem('pinnedItems', JSON.stringify(jsondata))
+      }
     },
     makeReqToApiForContent(lang) {
       // active on language page page load
@@ -142,12 +141,13 @@ export default {
         })
       })
     },
-    showPinMenu() {
-      alert('hello world')
+    showPinMenu(bool) {
+      this.showPopup = bool
     }
   },
   created() {
-    this.makeReqToLangList()
+    // this.makeReqToLangList()
+    this.getPinnedItems()
   }
 }
 </script>

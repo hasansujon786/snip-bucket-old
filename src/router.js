@@ -20,7 +20,7 @@ export default new Router({
       children: [
         {
           path: '/',
-          name: 'contents',
+          name: 'contents-default',
           component: () => import(/* webpackChunkName: "about" */ './components/ContentDefault.vue')
         },
         {

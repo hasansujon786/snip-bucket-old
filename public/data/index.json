@@ -16,70 +16,49 @@
   {
     "id": "03",
     "slug": "react",
-    "title": "React.js",
+    "title": "node.js",
     "detail": "A JS library for building UIs",
     "logo": "react"
   },
   {
     "id": "04",
     "slug": "react",
-    "title": "React.js",
+    "title": "angular.js",
     "detail": "A JS library for building UIs",
     "logo": "react"
   },
   {
     "id": "05",
     "slug": "react",
-    "title": "React.js",
+    "title": "javascript",
     "detail": "A JS library for building UIs",
     "logo": "react"
   },
   {
-    "id": "03",
+    "id": "06",
     "slug": "react",
-    "title": "React.js",
+    "title": "HTML",
     "detail": "A JS library for building UIs",
     "logo": "react"
   },
   {
-    "id": "03",
+    "id": "07",
     "slug": "react",
-    "title": "React.js",
+    "title": "CSS",
     "detail": "A JS library for building UIs",
     "logo": "react"
   },
   {
-    "id": "03",
+    "id": "08",
     "slug": "react",
-    "title": "React.js",
+    "title": "nuxt.js",
     "detail": "A JS library for building UIs",
     "logo": "react"
   },
   {
-    "id": "02",
+    "id": "09",
     "slug": "react",
-    "title": "React.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "02",
-    "slug": "react",
-    "title": "React.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "02",
-    "slug": "react",
-    "title": "React.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "02",
-    "slug": "react",
-    "title": "React.js",
+    "title": "Next.js",
     "detail": "A JS library for building UIs",
     "logo": "react"
   }

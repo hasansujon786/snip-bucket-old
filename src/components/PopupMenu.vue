@@ -13,6 +13,8 @@
         <p class="text-sm mb-2 text-gray-700 font-semibold">
           Click on the list to add item
         </p>
+
+        <!-- all lang list -->
         <ul class="h-40 border overflow-y-scroll scrolable">
           <li
             @click="addToList(lang)"
@@ -24,12 +26,14 @@
           </li>
         </ul>
 
+        <!-- all pill list -->
         <ul class="my-4 text-center">
+          <!-- pill -->
           <li
             class="pill inline-flex cursor-pointer justify-center items-center text-sm  py-2 px-4 mb-2 border rounded-full"
             v-for="(lang, ii) in selectedLanguags"
             :key="ii"
-            @click="removeLang(lang)"
+            @click="removeLang(ii)"
           >
             {{ lang.title }}
 
@@ -85,21 +89,44 @@ export default {
       searchQuery: ''
     }
   },
-  methods: {
-    save() {
-      alert('hey button savse')
-    },
-    cancel() {
-      alert('hey button cancel')
-    },
-    addToList(lang) {
-      this.selectedLanguags.push(lang)
-    },
-    removeLang(lang) {
-      console.log(lang.title)
+  props: {
+    showPinMenu: {
+      type: Function,
+      required: true
     }
   },
-
+  methods: {
+    makeReqToLangList() {
+      axios
+        .get('/data/index.json')
+        .then(response => {
+          this.allLanguags = response.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    save() {
+      localStorage.setItem('pinnedItems', JSON.stringify(this.selectedLanguags))
+      this.$emit('save')
+      this.showPinMenu(false)
+    },
+    cancel() {
+      this.showPinMenu(false)
+    },
+    addToList(lang) {
+      let foundIndex = this.selectedLanguags.findIndex(curValue => {
+        return curValue.id == lang.id
+      })
+      if (foundIndex == -1) {
+        this.searchQuery = ''
+        this.selectedLanguags.push(lang)
+      }
+    },
+    removeLang(index) {
+      this.selectedLanguags.splice(index, 1)
+    }
+  },
   computed: {
     filteredLangList() {
       return this.allLanguags.filter(lang => {
@@ -108,14 +135,10 @@ export default {
     }
   },
   created() {
-    axios
-      .get('/data/index.json')
-      .then(response => {
-        this.allLanguags = response.data
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    this.makeReqToLangList()
+    // get pinned data
+    let pinnedItems = localStorage.getItem('pinnedItems')
+    this.selectedLanguags = JSON.parse(pinnedItems)
   }
 }
 </script>

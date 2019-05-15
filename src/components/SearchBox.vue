@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="search" class="mr-40 relative w-1/2">
+  <form @submit.prevent="search" class="mr-40 relative w-1/2 z-50">
     <input
       class="input border z-10 relative py-3 text-sm px-6 text-gray-600 w-full outline-none rounded-full bg-gray-110 shadow focus:border-gray-500"
       placeholder='Search the docs (Press " Ctrl + / " to focus)'
@@ -71,7 +71,7 @@
     </button>
 
     <div
-      class="result-bar absolute border overflow-y-scroll z-0 -mt-3 rounded-t-none text-gray-600 rounded-lg w-full shadow bg-white hidden"
+      class="result-bar absolute border overflow-y-scroll -mt-3 rounded-t-none text-gray-600 rounded-lg w-full shadow bg-white hidden"
     >
       <a
         v-for="(item, i) in filteredArray"

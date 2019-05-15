@@ -2,7 +2,7 @@
   <div
     class="absolute border-r-3 bg-white w-full bottom-0 flex justify-srart items-center border py-6 px-4 stroke-current"
   >
-    <button @click="pin">
+    <button @click="showPinMenu(true)">
       <svg width="32" height="32" viewBox="0 0 32 32">
         <defs>
           <clipPath id="a"><rect width="32" height="32" fill="none" /></clipPath>
@@ -39,7 +39,7 @@ export default {
     return {}
   },
   props: {
-    pin: {
+    showPinMenu: {
       type: Function,
       required: true
     }

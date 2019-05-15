@@ -2,7 +2,7 @@
   <section class="home">
     <router-link
       class="float-right p-3 text-sm font-semibold text-gray-600 hover:text-blue-600"
-      to="/contents/vue"
+      :to="{ name: 'contents-child', params: { lang: this.appRoute } }"
       >Open app</router-link
     >
     <div class="text-center font-mono pt-20">
@@ -95,7 +95,8 @@ export default {
   data() {
     return {
       allLanguags: [],
-      searchQuery: ''
+      searchQuery: '',
+      appRoute: 'react'
     }
   },
   computed: {
@@ -110,6 +111,12 @@ export default {
       if (!this.searchQuery || !this.filteredLangList.length) return
 
       this.$router.push({ name: 'contents-child', params: { lang: this.filteredLangList[0].slug } })
+    },
+    getPinnedItems() {
+      const pinnedItems = JSON.parse(localStorage.getItem('pinnedItems'))
+      if (pinnedItems && pinnedItems.length) {
+        this.appRoute = pinnedItems[0].slug
+      }
     }
   },
   created() {
@@ -121,6 +128,8 @@ export default {
       .catch(err => {
         console.log(err)
       })
+
+    this.getPinnedItems()
   }
 }
 </script>
