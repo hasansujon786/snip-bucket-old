@@ -1,5 +1,5 @@
 <template>
-  <section class="home">
+  <section class="home h-screen overflow-y-scroll">
     <router-link
       class="float-right p-3 text-sm font-semibold text-gray-600 hover:text-blue-600"
       :to="{ name: 'contents-child', params: { lang: this.appRoute } }"
@@ -7,7 +7,7 @@
     >
     <div class="text-center font-mono pt-20">
       <h1 class="text-4xl tracking-tighter">snip bucket</h1>
-      <p class="text-sm font-bold tracking-wide text-gray-500 mb-2">
+      <p class="text-sm font-bold tracking-wide text-gray-500">
         A effort to do something good
       </p>
     </div>
@@ -20,7 +20,7 @@
       >
         <input
           type="text"
-          class="border w-full rounded-full font-semibold py-3 px-6 bg-gray-110 shadow focus:border-gray-500 transition-all focus:outline-none"
+          class="border w-full rounded-full font-semibold py-3 px-6 bg-gray-110 shadow transition-fast focus:outline-none focus:shadow-outline-black"
           placeholder="Search here"
           v-model="searchQuery"
         />
@@ -55,9 +55,9 @@
 
     <!-- search box end -->
 
-    <div class="langeag-block sm:w-5/6 mx-auto my-16">
+    <div class="langeag-block sm:w-5/6 mx-auto mt-16">
       <div class="text-center font-semibold text-gray-500" v-if="!filteredLangList.length">
-        <p>Ups nothing matched..</p>
+        <p>No result for "{{ searchQuery }}"</p>
       </div>
 
       <div class="px-2">
@@ -67,7 +67,6 @@
             :key="i"
             class="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 px-2 flex justify-center"
           >
-            <!-- card -->
             <router-link
               :to="{ name: 'contents-child', params: { lang: lang.slug } }"
               class="inline-flex justify-center items-center flex-col shadow w-40 h-48 p-2 border shadow text-center hover:shadow-lg"

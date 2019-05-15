@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="search" class="mr-40 relative w-1/2 z-50">
     <input
-      class="input border z-10 relative py-3 text-sm px-6 text-gray-600 w-full outline-none rounded-full bg-gray-110 shadow focus:border-gray-500"
+      class="input border z-10 relative py-3 transition-fast text-sm px-6 text-gray-600 w-full outline-none rounded-full bg-gray-110 shadow focus:shadow-outline-black"
       placeholder='Search the docs (Press " Ctrl + / " to focus)'
       type="text"
       v-model="searchQuery"
