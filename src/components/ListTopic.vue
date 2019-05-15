@@ -67,13 +67,4 @@ input[type='checkbox'] {
     transform: rotate(180deg);
   }
 }
-
-i {
-  // background: #000;
-}
-ul.lists-items {
-  li:not(:last-child) {
-    // margin-bottom: 0.3rem;
-  }
-}
 </style>

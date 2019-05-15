@@ -3,9 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
-import Layout from './layout/default.vue'
+import UiButtons from './components/UiButtons.vue'
 
-Vue.component('Layout', Layout)
+Vue.component('ui-button', UiButtons)
 
 Vue.config.productionTip = false
 

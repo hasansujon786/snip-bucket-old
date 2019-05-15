@@ -8,18 +8,25 @@
       <search-box :allitemArr="allitemArr"></search-box>
     </nav-bar>
 
-    <section v-if="true" class="flex flex-1 h-full max-h-full" style="height: calc(100% - 82px);">
+    <popup-menu></popup-menu>
+    <section
+      v-if="true"
+      class="flex flex-1 h-full max-h-full relative"
+      style="height: calc(100% - 82px);"
+    >
       <!-- left sidebar -->
-      <side-nav>
+      <side-nav class="relative">
         <list-lang
-          v-for="lang in allLanguags"
-          :key="lang.slug"
+          v-for="(lang, i) in allLanguags"
+          :key="i"
           :slug="lang.slug"
-          :langName="lang.name"
+          :langName="lang.title"
           :langDetail="lang.detail"
           :logo="lang.logo"
           :isShrink="isLeftMenuShrink"
         ></list-lang>
+        <!-- actions -->
+        <sidebarActions :pin="showPinMenu" />
       </side-nav>
 
       <!-- content page -->
@@ -48,6 +55,8 @@ import SideNav from '@/components/SideNav.vue'
 import ListLang from '@/components/ListLang.vue'
 import ListTopic from '@/components/ListTopic.vue'
 import SearchBoxVue from '@/components/SearchBox.vue'
+import sidenavActionsVue from '@/components/sidenavActions.vue'
+import PopupMenuVue from '../components/PopupMenu.vue'
 
 export default {
   name: 'Contents-page',
@@ -72,7 +81,9 @@ export default {
     navBar: Navbar,
     listLang: ListLang,
     listTopic: ListTopic,
-    searchBox: SearchBoxVue
+    searchBox: SearchBoxVue,
+    sidebarActions: sidenavActionsVue,
+    popupMenu: PopupMenuVue
   },
   methods: {
     makeReqToLangList() {
@@ -130,6 +141,9 @@ export default {
           this.allitemArr.push(item.description)
         })
       })
+    },
+    showPinMenu() {
+      alert('hello world')
     }
   },
   created() {

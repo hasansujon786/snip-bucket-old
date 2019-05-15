@@ -1,5 +1,5 @@
 <template>
-  <li class="listLanguage hover:bg-gray-200 w-full">
+  <li class="listLanguage hover:bg-gray-200 w-full" style="max-width: 220px;">
     <router-link
       :to="{ name: 'contents-child', params: { lang: slug } }"
       class="border-b py-5 px-3 inline-flex items-center w-full"
@@ -46,9 +46,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.listLanguage {
-  max-width: 220px;
-}
-</style>
