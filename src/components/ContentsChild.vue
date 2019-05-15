@@ -1,20 +1,21 @@
 <template>
-  <section class="contents-child pb-12 bg-gray-110 min-h-full">
+  <!-- bg-gray-110 -->
+  <section class="contents-child pb-12 min-h-full">
     <div v-if="response.title">
       <!-- title -->
       <div class="text-center font-mono pt-6">
-        <h1 class="text-4xl tracking-tighter">{{ response.title }}</h1>
-        <p class="text-sm font-bold tracking-wide text-gray-500 mb-2">{{ response.description }}</p>
+        <h1 class="text-4xl text-gray-900 tracking-tighter">{{ response.title }}</h1>
+        <p class="text-sm font-bold tracking-wide text-gray-600 mb-2">{{ response.description }}</p>
       </div>
 
       <!-- code block -->
       <div
-        class="code bg-white my-6 mx-auto p-5 rounded shadow border"
+        class="code my-6 mx-auto p-5 rounded shadow border"
         v-for="(topic, i) in response.topics"
         :key="i"
       >
         <h4
-          class="font-semibold mb-6"
+          class="font-semibold mb-6 text-gray-900"
           :id="
             topic.title
               .toLowerCase()
@@ -78,12 +79,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.contents-child {
+  background-color: var(--bg-deem);
+}
 .code {
+  background-color: var(--bg-light);
   max-width: 720px;
   &:hover &__block::-webkit-scrollbar-thumb {
     background-color: rgb(194, 194, 194);
   }
   &__block {
+    // background-color: rgb(255, 251, 251);
     &::-webkit-scrollbar {
       height: 3px;
     }

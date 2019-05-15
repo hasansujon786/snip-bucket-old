@@ -2,7 +2,7 @@
   <section
     class="popup__bg absolute flex justify-center items-center top-0 left-0 w-full h-full z-50"
   >
-    <div style="width: 550px" class="bg-white border rounded max-w-lg shadow-lg p-6 text-gray-600">
+    <div style="width: 550px" class="card-bg border rounded max-w-lg shadow-lg p-6 text-gray-600">
       <input
         type="text"
         v-model="searchQuery"
@@ -144,10 +144,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+input,
+.card-bg {
+  background-color: var(--bg-light);
+}
+
 .popup__bg {
   background: rgba(0, 0, 0, 0.226);
 }
-.pill:not(:last-child) {
-  margin-right: 10px;
+.pill {
+  background-color: var(--bg-deem);
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 }
 </style>

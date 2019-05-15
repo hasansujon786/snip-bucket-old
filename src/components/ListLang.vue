@@ -1,5 +1,5 @@
 <template>
-  <li class="listLanguage hover:bg-gray-200 w-full" style="max-width: 220px;">
+  <li class="listLanguage w-full" style="max-width: 220px;">
     <router-link
       :to="{ name: 'contents-child', params: { lang: slug } }"
       class="border-b py-5 px-3 inline-flex items-center w-full"
@@ -12,8 +12,8 @@
         />
       </figure>
       <div class="pl-3 w-40" v-show="isShrink">
-        <h3 class="text-sm font-semibold">{{ langName }}</h3>
-        <p class="text-xs text-gray-500">{{ langDetail }}</p>
+        <h3 class="text-sm text-gray-900 font-semibold">{{ langName }}</h3>
+        <p class="text-xs text-gray-600">{{ langDetail }}</p>
       </div>
     </router-link>
   </li>
@@ -46,3 +46,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.listLanguage {
+  &:hover {
+    background-color: var(--bg-deem-100);
+  }
+}
+</style>

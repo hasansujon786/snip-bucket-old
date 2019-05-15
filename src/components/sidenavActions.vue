@@ -1,6 +1,6 @@
 <template>
   <div
-    class="absolute border-r-3 border bg-white bottom-0 w-full flex flex-col justify-center items-start py-6 pl-5 stroke-current"
+    class="sideNav-actions absolute border-r-3 border bg-white bottom-0 w-full flex flex-col justify-center items-start py-6 pl-5 stroke-current"
   >
     <button @click="showPinMenu(true)" class="mb-3">
       <svg width="24" height="24" viewBox="0 0 32 32" class="">
@@ -67,3 +67,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.sideNav-actions {
+  background-color: var(--bg-light);
+}
+</style>

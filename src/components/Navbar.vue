@@ -117,6 +117,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.navbar {
+  background-color: var(--bg-light);
+}
 .menuInput:checked + .navbar__links {
   display: none;
 }

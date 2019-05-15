@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="search" class="mr-40 relative w-1/2 z-50">
     <input
-      class="input border z-10 relative py-3 transition-fast text-sm px-6 text-gray-600 w-full outline-none rounded-full bg-gray-110 shadow focus:shadow-outline-black"
+      class="input border z-10 relative py-3 transition-fast text-sm px-6 text-gray-600 w-full outline-none rounded-full bg-gray-110 shadow focus:shadow-outline"
       placeholder='Search the docs (Press " Ctrl + / " to focus)'
       type="text"
       v-model="searchQuery"
@@ -38,7 +38,7 @@
     <button
       type="button"
       @click="searchQuery = ''"
-      class="clear-btn bg-transpaent mr-3 flex items-center justify-center abs-center-h right-0 rounded-full hidden absolute z-10 w-8 on-active-gray h-8 text-gray-900  focus:outline-none focus:text-red-500 hover:text-red-500"
+      class="clear-btn bg-transpaent mr-3 flex items-center justify-center abs-center-h right-0 rounded-full hidden absolute z-10 w-8 on-active-gray h-8 text-gray-900  focus:outline-none"
     >
       <svg
         class="fill-current stroke-current"
@@ -71,7 +71,7 @@
     </button>
 
     <div
-      class="result-bar absolute border overflow-y-scroll -mt-3 rounded-t-none text-gray-600 rounded-lg w-full shadow bg-white hidden"
+      class="result-bar absolute scrolable border overflow-y-scroll -mt-3 rounded-t-none text-gray-600 rounded-lg w-full shadow hidden"
     >
       <a
         v-for="(item, i) in filteredArray"
@@ -165,6 +165,18 @@ input:not(:placeholder-shown) {
   max-height: 250px;
   a:first-child {
     margin-top: 1rem;
+  }
+}
+
+// theme //
+.result-bar,
+.input {
+  background-color: var(--bg-deem-100);
+}
+.clear-btn {
+  &:hover,
+  &:focus {
+    color: red !important;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="side-nav  bg-white border-gray-300 flex hidden lg:block">
+  <div class="side-nav border-gray-300 flex hidden lg:block">
     <ul class="nav-items scrolable overflow-y-scroll h-full overflow-x-hidden">
       <slot></slot>
     </ul>
@@ -14,3 +14,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.side-nav {
+  background-color: var(--bg-light);
+}
+</style>

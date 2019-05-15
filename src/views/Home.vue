@@ -20,7 +20,7 @@
       >
         <input
           type="text"
-          class="border w-full rounded-full font-semibold py-3 px-6 bg-gray-110 shadow transition-fast focus:outline-none focus:shadow-outline-black"
+          class="search-input border w-full rounded-full font-semibold py-3 px-6 shadow transition-fast focus:outline-none focus:shadow-outline"
           placeholder="Search here"
           v-model="searchQuery"
         />
@@ -132,3 +132,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home {
+  background-color: var(--bg-deem);
+}
+.search-input {
+  background-color: var(--bg-deem-100);
+  // background-color: var(--bg-light);
+}
+</style>

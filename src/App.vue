@@ -1,5 +1,9 @@
 <template>
-  <div id="app" class="font-sans ">
+  <div id="app" :data-theme="theme" class="font-sans ">
+    <div class="absolute pl-5">
+      <input id="themeinput" type="checkbox" v-model="themeBool" />
+      <label for="themeinput">Theme</label>
+    </div>
     <router-view />
   </div>
 </template>
@@ -7,36 +11,24 @@
 <script>
 import './assets/css/main.css'
 export default {
-  name: 'app'
+  name: 'app',
+  data() {
+    return {
+      themeBool: false
+    }
+  },
+  computed: {
+    theme() {
+      return this.themeBool ? 'dark' : 'light'
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-body {
-  // overflow-y: scroll;
-  // max-height: 100vh;
-}
 .search-text-highlight {
   background: #68d391;
   color: white;
-}
-
-.scrolable {
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #e2e8f0;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #c1c3c7;
-
-    &:hover {
-      background-color: tomato;
-    }
-  }
 }
 
 @supports (scrollbar-width: thin) {
@@ -79,5 +71,55 @@ body {
 }
 .border-r-3 {
   border-right-width: 3px;
+}
+.scrolable {
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e2e8f0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c3c7;
+
+    &:hover {
+      background-color: tomato;
+    }
+  }
+}
+
+/* --------------- Light mode --------------- */
+#app[data-theme='light'] {
+  --bg-deem-100: #f8f8f8;
+  --bg-deem: #f8f8f8;
+  --bg-light: #fff;
+}
+
+/* --------------- Dark mode --------------- */
+#app[data-theme='dark'] {
+  --bg-deem-100: #202a38;
+  --bg-deem: #1c2532;
+  --bg-light: #283243;
+  *,
+  *::before,
+  *::after {
+    border-color: #293d5a;
+  }
+  .scrolable {
+    &::-webkit-scrollbar-track {
+      background: #293d5a;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #314f7e;
+      &:hover {
+        background-color: tomato;
+      }
+    }
+  }
+  .text-gray-900 {
+    color: #a0aec0;
+  }
 }
 </style>
