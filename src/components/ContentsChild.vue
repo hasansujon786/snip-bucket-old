@@ -37,7 +37,7 @@
           >
             {{ item.description }}
           </p>
-          <prism contenteditable class="code__block rounded-lg" language="javascript">{{
+          <prism contenteditable class="code__block rounded-lg" :language="item.type">{{
             item.code
           }}</prism>
         </div>

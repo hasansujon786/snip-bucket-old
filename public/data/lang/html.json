@@ -1,0 +1,39 @@
+{
+  "id": "css",
+  "title": "HTML",
+  "slug": "css",
+  "description": "Usefull CSS cheetsheet",
+  "theme": "#42A5F5",
+  "topics": [
+    {
+      "title": "Directives",
+      "items": [
+        {
+          "description": "Flex center",
+          "code": ".flex-center {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}",
+          "type": "css"
+        },
+        {
+          "description": "HTML attribute binding",
+          "code": "v-bind",
+          "type": "javascript"
+        }
+      ]
+    },
+    {
+      "title": "Binding",
+      "items": [
+        {
+          "description": "dynamic url binding",
+          "code": ":href='url'",
+          "type": "javascript"
+        },
+        {
+          "description": "dynamic url bingin",
+          "code": ":class='{active: isActive}'",
+          "type": "javascript"
+        }
+      ]
+    }
+  ]
+}

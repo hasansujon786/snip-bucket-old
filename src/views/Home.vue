@@ -1,13 +1,14 @@
 <template>
   <section class="home h-screen overflow-y-scroll">
-    <router-link
-      class="float-right p-3 text-sm font-semibold text-gray-600 hover:text-blue-600"
-      :to="{ name: 'contents-child', params: { lang: this.appRoute } }"
-      >Open app</router-link
-    >
-    <div class="text-center font-mono pt-20">
-      <h1 class="text-4xl tracking-tighter">snip bucket</h1>
-      <p class="text-sm font-bold tracking-wide text-gray-500">
+    <div class="flex justify-end p-4">
+      <router-link :to="{ name: 'contents-child', params: { lang: this.appRoute } }">
+        <ui-button :rounded="false" color="gray">Open app</ui-button>
+      </router-link>
+    </div>
+
+    <div class="text-center font-mono pt-12">
+      <h1 class="text-4xl tracking-tighter text-gray-900">snip bucket</h1>
+      <p class="text-sm font-bold tracking-wide text-gray-600">
         A effort to do something good
       </p>
     </div>
@@ -67,14 +68,15 @@
             :key="i"
             class="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 px-2 flex justify-center"
           >
+            <!-- card -->
             <router-link
               :to="{ name: 'contents-child', params: { lang: lang.slug } }"
-              class="inline-flex justify-center items-center flex-col shadow w-40 h-48 p-2 border shadow text-center hover:shadow-lg"
+              class="inline-flex text-gray-600 justify-center items-center flex-col shadow w-40 h-48 p-2 border shadow text-center hover:shadow-lg"
             >
               <figure class="w-16 h-16">
                 <img
-                  class="object-cover w-full h-full"
-                  :src="require(`@/assets/img/lang/${lang.logo}.png`)"
+                  class="object-contain w-full h-full"
+                  :src="require(`@/assets/img/lang/${lang.logo}.svg`)"
                   :alt="lang.title"
                 />
               </figure>

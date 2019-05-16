@@ -2,7 +2,8 @@
   <section class="default-layout max-h-screen h-screen">
     <!-- Navbar -->
     <nav-bar v-if="true" :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
-      <search-box :allitemArr="allitemArr"></search-box>
+      <search-box class="mr-6" :allitemArr="allitemArr"></search-box>
+      <theme-button class="mr-6"></theme-button>
     </nav-bar>
 
     <popup-menu v-if="showPopup" :showPinMenu="showPinMenu" @save="getPinnedItems"></popup-menu>
@@ -52,7 +53,8 @@ import ListLang from '@/components/ListLang.vue'
 import ListTopic from '@/components/ListTopic.vue'
 import SearchBoxVue from '@/components/SearchBox.vue'
 import sidenavActionsVue from '@/components/sidenavActions.vue'
-import PopupMenuVue from '../components/PopupMenu.vue'
+import PopupMenuVue from '@/components/PopupMenu.vue'
+import ThemeToggleButtonVue from '@/components/ThemeToggleButton.vue'
 
 export default {
   name: 'Contents-page',
@@ -75,24 +77,32 @@ export default {
     listTopic: ListTopic,
     searchBox: SearchBoxVue,
     sidebarActions: sidenavActionsVue,
-    popupMenu: PopupMenuVue
+    popupMenu: PopupMenuVue,
+    themeButton: ThemeToggleButtonVue
   },
   methods: {
     getPinnedItems() {
       let jsondata = [
         {
           id: '01',
-          slug: 'vue',
-          title: 'vue.js',
-          detail: 'Vue.js ofline',
-          logo: 'vue'
+          slug: 'html',
+          title: 'HTML',
+          detail: 'Usefull HTML cheetsheet',
+          logo: 'html'
         },
         {
           id: '02',
-          slug: 'react',
-          title: 'React.js',
-          detail: 'A JS library for building UIs',
-          logo: 'react'
+          slug: 'css',
+          title: 'CSS',
+          detail: 'Usefull CSS cheetsheet',
+          logo: 'css'
+        },
+        {
+          id: '03',
+          slug: 'js',
+          title: 'JavaScript',
+          detail: 'Usefull JS cheetsheet',
+          logo: 'js'
         }
       ]
       const pinnedItems = JSON.parse(localStorage.getItem('pinnedItems'))

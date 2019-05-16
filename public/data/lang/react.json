@@ -10,23 +10,28 @@
       "items": [
         {
           "description": "Show or hide elements programmatically",
-          "code": "v-if/v-show"
+          "code": "v-if/v-show",
+          "type": "javascript"
         },
         {
           "description": "HTML attribute binding",
-          "code": "v-bind"
+          "code": "v-bind",
+          "type": "javascript"
         },
         {
           "description": "Two-way way data binding",
-          "code": "v-model"
+          "code": "v-model,",
+          "type": "javascript"
         },
         {
           "description": "HTML event binding",
-          "code": "v-on:click"
+          "code": "v-on:click",
+          "type": "javascript"
         },
         {
           "description": "List rendering",
-          "code": "v-for"
+          "code": "v-for",
+          "type": "javascript"
         }
       ]
     },
@@ -35,15 +40,18 @@
       "items": [
         {
           "description": "dynamic url binding",
-          "code": ":href='url'"
+          "code": ":href='url'",
+          "type": "javascript"
         },
         {
           "description": "dynamic url bingin",
-          "code": ":class='{active: isActive}'"
+          "code": ":class='{active: isActive}'",
+          "type": "javascript"
         },
         {
           "description": "dynamic style binding",
-          "code": ":style='{color: activeColor}'"
+          "code": ":style='{color: activeColor}'",
+          "type": "javascript"
         }
       ]
     },
@@ -52,15 +60,18 @@
       "items": [
         {
           "description": "Bind event on form submits",
-          "code": "<form @submit.prevent='addUser'>..."
+          "code": "<form @submit.prevent='addUser'>...",
+          "type": "javascript"
         },
         {
           "description": "ইভেন্ট একবার সংঘটিত করতে",
-          "code": "<a @click.once='doThis'></a>"
+          "code": "<a @click.once='doThis'></a>",
+          "type": "javascript"
         },
         {
           "description": "Stop propagation on HTML elements",
-          "code": "<a @click.stop='doThis'></a>"
+          "code": "<a @click.stop='doThis'></a>",
+          "type": "javascript"
         }
       ]
     }

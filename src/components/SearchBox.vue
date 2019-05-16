@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="search" class="mr-40 relative w-1/2 z-50">
+  <form @submit.prevent="search" class="relative w-1/2 z-50">
     <input
-      class="input border z-10 relative py-3 transition-fast text-sm px-6 text-gray-600 w-full outline-none rounded-full bg-gray-110 shadow focus:shadow-outline"
+      class="input border z-10 relative text-sm py-3 px-6 transition-fast w-full outline-none rounded-full bg-gray-110 shadow focus:shadow-outline"
       placeholder='Search the docs (Press " Ctrl + / " to focus)'
       type="text"
       v-model="searchQuery"
@@ -71,7 +71,7 @@
     </button>
 
     <div
-      class="result-bar absolute scrolable border overflow-y-scroll -mt-3 rounded-t-none text-gray-600 rounded-lg w-full shadow hidden"
+      class="result-bar scrolable absolute border overflow-y-scroll -mt-4 rounded-t-none text-gray-600 rounded-lg w-full shadow hidden"
     >
       <a
         v-for="(item, i) in filteredArray"
@@ -168,15 +168,23 @@ input:not(:placeholder-shown) {
   }
 }
 
-// theme //
-.result-bar,
-.input {
-  background-color: var(--bg-deem-100);
-}
 .clear-btn {
   &:hover,
   &:focus {
     color: red !important;
+  }
+}
+
+// theme //
+.result-bar,
+.input {
+  background-color: var(--bg-deem-100);
+  @apply text-gray-600;
+}
+
+.app[data-theme='dark'] {
+  .input {
+    @apply text-gray-400;
   }
 }
 </style>

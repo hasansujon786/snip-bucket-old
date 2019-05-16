@@ -1,5 +1,6 @@
 <template>
   <nav class="navbar w-full flex items-center justify-between flex-wrap bg-white py-4 px-3">
+    <!-- sideNav toggle button -->
     <button
       @click="handleShrinkMenu('left')"
       class="left-btn text-green-900 on-active-gray w-12 h-12 mr-2 flex items-center justify-center rounded-full focus:outline-none"
@@ -36,13 +37,14 @@
         </g>
       </svg>
     </button>
+
     <!-- brand -->
     <router-link to="/" class="text-gray-900 mr-6">
       <span class="font-semibold font-mono text-2xl tracking-tighter">snip bucket</span>
     </router-link>
     <!-- brand end -->
 
-    <!-- menu toggle button -->
+    <!-- Navbar toggle button -->
     <label
       for="menu"
       class="flex block lg:hidden items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-gray-700 hover:border-gray-700"
@@ -53,7 +55,7 @@
       </svg>
     </label>
     <input type="checkbox" name="menu" id="menu" class="menuInput hidden" checked />
-    <!-- menu toggle button end -->
+    <!-- navbar toggle button end -->
 
     <div class="navbar__links w-full block flex-grow lg:items-center lg:w-auto">
       <!-- Nav Links -->
@@ -74,15 +76,9 @@
       <!-- search box end -->
 
       <!-- Download button -->
-      <div>
-        <button
-          class="inline-block  px-4 py-2  border rounded leading-none  bg-gray-300 border-gray-300  hover:bg-gray-400 mt-4 lg:mt-0"
-        >
-          <span class="text-sm font-semibold text-gray-l00">
-            Offline
-          </span>
-        </button>
-      </div>
+      <section class="flex items-center text-gray-900">
+        <ui-button :rounded="false" color="gray">Ofline Manage</ui-button>
+      </section>
       <!-- Download button end -->
     </div>
   </nav>

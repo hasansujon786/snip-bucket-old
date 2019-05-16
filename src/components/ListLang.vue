@@ -6,8 +6,8 @@
     >
       <figure class="w-10 h-10">
         <img
-          class="object-cover w-full h-full"
-          :src="require(`@/assets/img/lang/${logo}.png`)"
+          class="object-contain w-full h-full"
+          :src="require(`@/assets/img/lang/${logo}.svg`)"
           :alt="langName"
         />
       </figure>

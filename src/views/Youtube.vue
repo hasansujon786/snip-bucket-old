@@ -1,5 +1,5 @@
 <template>
-  <div class="youtube-page p-24 bg-gray-600 h-screen">
+  <div class="youtube-page p-24 h-screen">
     <h1>youtube-page</h1>
     <input type="text" class="border" v-model="query" />
 
@@ -22,12 +22,12 @@
       <i class="icon icon-arrow-down"></i>
     </div>
     <hr />
-    <div>
+    <div class="btn-sample">
       <ui-button>default</ui-button>
-      <ui-button color="blue">blue</ui-button>
-      <ui-button color="green">green</ui-button>
-      <ui-button color="red">red</ui-button>
-      <ui-button color="teal">teal</ui-button>
+      <ui-button color="blue">Blue btn</ui-button>
+      <ui-button color="green">Green btn</ui-button>
+      <ui-button color="red">Red btn</ui-button>
+      <ui-button color="teal">Teal btn</ui-button>
     </div>
   </div>
 </template>
@@ -69,5 +69,10 @@ export default {
 }
 .icons-box i {
   margin-right: 2rem;
+}
+.btn-sample {
+  button {
+    margin-right: 1rem;
+  }
 }
 </style>

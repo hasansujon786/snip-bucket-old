@@ -1,6 +1,0 @@
-[
-  {
-    "title": "handale route eror",
-    "code": "routes = {\n      path: '/404',\n      name: '404',\n      component: require('./views/_404').default\n    },\n    // Redirect any unmatched routes to the 404 page.\n    {\n      path: '*',\n      redirect: '404'\n    }"
-  }
-]

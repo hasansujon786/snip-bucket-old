@@ -1,9 +1,5 @@
 <template>
-  <div id="app" :data-theme="theme" class="font-sans ">
-    <div class="absolute pl-5">
-      <input id="themeinput" type="checkbox" v-model="themeBool" />
-      <label for="themeinput">Theme</label>
-    </div>
+  <div :data-theme="theme" class="app font-sans">
     <router-view />
   </div>
 </template>
@@ -12,20 +8,24 @@
 import './assets/css/main.css'
 export default {
   name: 'app',
-  data() {
-    return {
-      themeBool: false
-    }
-  },
   computed: {
     theme() {
-      return this.themeBool ? 'dark' : 'light'
+      return this.isLightTheme ? 'light' : 'dark'
+    },
+    isLightTheme() {
+      return this.$store.getters.getThemeBool
     }
+  },
+  created() {
+    this.$store.dispatch('onAppLoadSetThemeToUserChoice')
   }
 }
 </script>
 
 <style lang="scss">
+html {
+  overflow: hidden;
+}
 .search-text-highlight {
   background: #68d391;
   color: white;
@@ -91,14 +91,14 @@ export default {
 }
 
 /* --------------- Light mode --------------- */
-#app[data-theme='light'] {
+.app[data-theme='light'] {
   --bg-deem-100: #f8f8f8;
   --bg-deem: #f8f8f8;
   --bg-light: #fff;
 }
 
 /* --------------- Dark mode --------------- */
-#app[data-theme='dark'] {
+.app[data-theme='dark'] {
   --bg-deem-100: #202a38;
   --bg-deem: #1c2532;
   --bg-light: #283243;

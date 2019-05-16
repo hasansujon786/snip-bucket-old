@@ -1,10 +1,12 @@
 <template>
   <button
     v-on="$listeners"
-    class="btn border-2 px-5 py-2 rounded-full font-semibold text-sm focus:outline-none"
-    :class="color"
+    class="btn border-2 px-5 py-2 font-semibold rounded-lg text-sm focus:shadow-outline focus:outline-none"
+    :class="[color, { 'rounded-full': rounded }]"
   >
-    <slot></slot>
+    <span class="text-content">
+      <slot></slot>
+    </span>
   </button>
 </template>
 
@@ -14,43 +16,54 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'gray'
+      default: 'default'
+    },
+    rounded: {
+      type: Boolean,
+      default: true
     }
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .btn {
-  color: white;
+  color: #fff;
   transition: all 150ms ease-out;
+
+  &:active {
+    filter: brightness(90%);
+    .text-content {
+      opacity: 0.6;
+    }
+  }
 }
-.btn:active {
-  filter: saturate(150%);
-  color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(28, 25, 34, 0.3) !important;
-}
-.btn:focus {
-  border-color: rgba(28, 25, 34, 0.3) !important;
+
+.btn.default {
+  @apply text-gray-500 border-gray-500;
 }
 
 .btn.gray {
-  color: #9c9b9b;
-  /* background: #fff; */
+  @apply bg-gray-500 border-gray-500;
 }
-.btn.gray:active {
-  background-color: #e2e5eb;
-}
+
 .btn.red {
   @apply bg-red-500 border-red-500;
 }
+
 .btn.blue {
   @apply bg-blue-500 border-blue-500;
 }
+
 .btn.green {
   @apply bg-green-500 border-green-500;
 }
+
 .btn.teal {
-  @apply bg-teal-500 border-teal-500;
+  @apply bg-teal-400 border-teal-400;
+}
+
+.btn.pink {
+  @apply bg-pink-500 border-pink-500;
 }
 </style>

@@ -1,100 +1,44 @@
 [
   {
     "id": "01",
-    "slug": "vue",
-    "title": "vue.js",
-    "detail": "Vue.js ofline",
-    "logo": "vue"
+    "slug": "html",
+    "title": "HTML",
+    "detail": "Usefull HTML cheetsheet",
+    "logo": "html"
   },
   {
     "id": "02",
-    "slug": "react",
-    "title": "React.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
+    "slug": "css",
+    "title": "CSS",
+    "detail": "Usefull CSS cheetsheet",
+    "logo": "css"
   },
   {
     "id": "03",
-    "slug": "react",
-    "title": "node.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
+    "slug": "js",
+    "title": "JavaScript",
+    "detail": "Usefull JS cheetsheet",
+    "logo": "js"
   },
   {
     "id": "04",
-    "slug": "react",
-    "title": "angular.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
+    "slug": "vue",
+    "title": "vue.js",
+    "detail": "Usefull Vue.js cheetsheet",
+    "logo": "vue"
   },
   {
     "id": "05",
     "slug": "react",
-    "title": "javascript",
-    "detail": "A JS library for building UIs",
+    "title": "React",
+    "detail": "Usefull React.js cheetsheet",
     "logo": "react"
   },
   {
     "id": "06",
-    "slug": "react",
-    "title": "HTML",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "07",
-    "slug": "react",
-    "title": "CSS",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "08",
-    "slug": "react",
-    "title": "nuxt.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "10",
-    "slug": "react",
-    "title": "Next.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "11",
-    "slug": "react",
-    "title": "Next.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "12",
-    "slug": "react",
-    "title": "Next.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "13",
-    "slug": "react",
-    "title": "Next.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "14",
-    "slug": "react",
-    "title": "Next.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
-  },
-  {
-    "id": "15",
-    "slug": "react",
-    "title": "Next.js",
-    "detail": "A JS library for building UIs",
-    "logo": "react"
+    "slug": "nodejs",
+    "title": "node.js",
+    "detail": "Usefull node.js cheetsheet",
+    "logo": "nodejs"
   }
 ]
