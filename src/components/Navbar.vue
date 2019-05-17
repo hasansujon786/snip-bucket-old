@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar bug w-full flex items-center justify-between bg-white py-2 pr-3">
+  <nav class="navbar bug w-full flex items-center justify-between bg-white h-16 pr-3">
     <section class="flex items-center">
       <!-- sideNav toggle button -->
       <button

@@ -1,6 +1,6 @@
 <template>
   <!-- bg-gray-110 -->
-  <section class="contents-child pb-12 min-h-full">
+  <section class="contents-child pb-12 min-h-full md:px-5">
     <div v-if="response.title">
       <!-- title -->
       <div class="text-center font-mono pt-6">

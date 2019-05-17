@@ -10,7 +10,7 @@
     <section
       v-if="true"
       class="flex flex-1 h-full max-h-full relative"
-      style="height: calc(100% - 65px);"
+      style="height: calc(100% - 4rem);"
     >
       <!-- left sidebar -->
       <side-nav class="relative md:block">

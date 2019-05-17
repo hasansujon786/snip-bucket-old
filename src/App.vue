@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 html {
-  overflow: hidden;
+  // overflow: hidden;
 }
 .search-text-highlight {
   background: #68d391;
