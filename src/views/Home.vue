@@ -1,59 +1,66 @@
 <template>
-  <section class="home h-screen overflow-y-scroll">
-    <div class="flex justify-end p-4">
+  <section class="home min-h-screen scrolable overflow-y-scroll">
+    <nav class="flex justify-between items-center px-4 h-16 shadow">
+      <router-link to="/" class="text-gray-900">
+        <div class="font-semibold ml-3 font-mono text-2xl tracking-tighter">
+          snip_bucket
+        </div>
+      </router-link>
+      <!-- divide -->
       <router-link :to="{ name: 'contents-child', params: { lang: this.appRoute } }">
         <ui-button :rounded="false" color="gray">Open app</ui-button>
       </router-link>
-    </div>
+    </nav>
 
-    <div class="text-center font-mono pt-12">
-      <h1 class="text-4xl tracking-tighter text-gray-900">snip bucket</h1>
-      <p class="text-sm font-bold tracking-wide text-gray-600">
-        A effort to do something good
-      </p>
-    </div>
+    <header class="pt-20 pb-12">
+      <div class="text-center font-mono">
+        <h1 class="text-4xl tracking-tighter text-gray-900">snip bucket</h1>
+        <p class="text-sm font-bold tracking-wide text-gray-600">
+          A effort to do something good
+        </p>
+      </div>
 
-    <!-- search box -->
-    <div class="px-4">
-      <form
-        @submit.prevent="gotoFirstResult"
-        class="relative text-center mt-12 max-w-xl text-gray-600 mx-auto w-full"
-      >
-        <input
-          type="text"
-          class="search-input border w-full rounded-full font-semibold py-3 px-6 shadow transition-fast focus:outline-none focus:shadow-outline"
-          placeholder="Search here"
-          v-model="searchQuery"
-        />
-        <i
-          class="search-icon opacity-50 text-gray-900 stroke-current mr-5 right-0 absolute z-30 abs-center-h"
+      <!-- search box -->
+      <div class="px-4">
+        <form
+          @submit.prevent="gotoFirstResult"
+          class="relative text-center mt-12 max-w-xl text-gray-600 mx-auto w-full"
         >
-          <svg width="21" height="21" viewBox="0 0 21 21">
-            <g transform="translate(-408.986 -30.5)">
-              <circle
-                cx="8.768"
-                cy="8.768"
-                r="8.768"
-                transform="translate(409.486 31)"
-                fill="none"
-                stroke-miterlimit="10"
-                stroke-width="1"
-              />
-              <path
-                d="M.5.5,5.156,5.157"
-                transform="translate(424.33 45.844)"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-miterlimit="10"
-                stroke-width="1"
-              />
-            </g>
-          </svg>
-        </i>
-      </form>
-    </div>
-
+          <input
+            type="text"
+            class="search-input border w-full rounded-full font-semibold py-3 px-6 shadow transition-fast focus:outline-none focus:shadow-outline"
+            placeholder="Search here"
+            v-model="searchQuery"
+          />
+          <i
+            class="search-icon opacity-50 text-gray-900 stroke-current mr-5 right-0 absolute z-30 abs-center-h"
+          >
+            <svg width="21" height="21" viewBox="0 0 21 21">
+              <g transform="translate(-408.986 -30.5)">
+                <circle
+                  cx="8.768"
+                  cy="8.768"
+                  r="8.768"
+                  transform="translate(409.486 31)"
+                  fill="none"
+                  stroke-miterlimit="10"
+                  stroke-width="1"
+                />
+                <path
+                  d="M.5.5,5.156,5.157"
+                  transform="translate(424.33 45.844)"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="10"
+                  stroke-width="1"
+                />
+              </g>
+            </svg>
+          </i>
+        </form>
+      </div>
+    </header>
     <!-- search box end -->
 
     <div class="langeag-block sm:w-5/6 mx-auto mt-16">
@@ -71,7 +78,7 @@
             <!-- card -->
             <router-link
               :to="{ name: 'contents-child', params: { lang: lang.slug } }"
-              class="inline-flex text-gray-600 justify-center items-center flex-col shadow w-40 h-48 p-2 border shadow text-center hover:shadow-lg"
+              class="card-lang inline-flex text-gray-600 justify-center items-center flex-col w-40 h-48 p-2 border text-center shadow hover:shadow-lg"
             >
               <figure class="w-16 h-16">
                 <img
@@ -139,8 +146,11 @@ export default {
 .home {
   background-color: var(--bg-deem);
 }
+nav {
+  background-color: var(--bg-light);
+}
+.card-lang,
 .search-input {
   background-color: var(--bg-deem-100);
-  // background-color: var(--bg-light);
 }
 </style>
