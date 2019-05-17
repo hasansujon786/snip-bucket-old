@@ -44,7 +44,9 @@ export default {
 }
 
 .btn.gray {
-  @apply bg-gray-500 border-gray-500;
+  background-color: #3D4C66;
+  border-color: #3D4C66;
+  @apply text-gray-500;
 }
 
 .btn.red {

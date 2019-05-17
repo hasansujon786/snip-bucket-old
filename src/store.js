@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isLightTheme: true
+    isLightTheme: false
   },
   mutations: {
     _changeTheme(state) {
@@ -26,7 +26,7 @@ export default new Vuex.Store({
       const localTheme = JSON.parse(localStorage.getItem('isLightTheme'))
       console.log('localTheme', localTheme)
 
-      localTheme == null ? commit('_setThemeToLight', true) : commit('_setThemeToLight', localTheme)
+      localTheme == null ? commit('_setThemeToLight', false) : commit('_setThemeToLight', localTheme)
     }
   },
   getters: {
