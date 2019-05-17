@@ -1,7 +1,7 @@
 <template>
   <button
     v-on="$listeners"
-    class="btn border-2 px-5 py-2 font-semibold rounded-lg text-sm focus:shadow-outline focus:outline-none"
+    class="btn border-2 px-5 py-2 font-semibold rounded-lg text-sm tracking-wider focus:shadow-outline focus:outline-none"
     :class="[color, { 'rounded-full': rounded }]"
   >
     <span class="text-content">

@@ -2,18 +2,18 @@
   <section class="default-layout max-h-screen h-screen">
     <!-- Navbar -->
     <nav-bar v-if="true" :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
-      <search-box class="mr-6" :allitemArr="allitemArr"></search-box>
-      <theme-button class="mr-6"></theme-button>
+      <search-box class="hidden md:block" :allitemArr="allitemArr"></search-box>
+      <theme-button class=""></theme-button>
     </nav-bar>
 
     <popup-menu v-if="showPopup" :showPinMenu="showPinMenu" @save="getPinnedItems"></popup-menu>
     <section
       v-if="true"
       class="flex flex-1 h-full max-h-full relative"
-      style="height: calc(100% - 82px);"
+      style="height: calc(100% - 65px);"
     >
       <!-- left sidebar -->
-      <side-nav class="relative">
+      <side-nav class="relative md:block">
         <list-lang
           v-for="(lang, i) in pinnedItems"
           :key="i"
@@ -39,7 +39,7 @@
       <!-- content end -->
 
       <!-- right sidebar -->
-      <side-nav>
+      <side-nav class="lg:block">
         <list-topic :topics="response.topics"></list-topic>
       </side-nav>
     </section>

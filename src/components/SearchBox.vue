@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="search" class="relative w-1/2 z-50">
+  <form @submit.prevent="search" class="relative w-2/3 lg:w-1/2 z-50">
     <input
       class="input border z-10 relative text-sm py-3 px-6 transition-fast w-full outline-none rounded-full bg-gray-110 shadow focus:shadow-outline"
       placeholder='Search the docs (Press " Ctrl + / " to focus)'

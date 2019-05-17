@@ -40,11 +40,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
-      path: '/youtube',
-      name: 'youtube',
-      component: () => import(/* webpackChunkName: "youtube" */ './views/Youtube.vue')
-    },
-    {
       path: '/404',
       name: '404',
       component: require('./views/_404').default
