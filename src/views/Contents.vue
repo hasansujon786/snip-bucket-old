@@ -3,15 +3,11 @@
     <!-- Navbar -->
     <nav-bar v-if="true" :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
       <search-box class="hidden md:block" :allitemArr="allitemArr"></search-box>
-      <theme-button class=""></theme-button>
+      <theme-button></theme-button>
     </nav-bar>
-
     <popup-menu v-if="showPopup" :showPinMenu="showPinMenu" @save="getPinnedItems"></popup-menu>
-    <section
-      v-if="true"
-      class="flex flex-1 h-full max-h-full relative"
-      style="height: calc(100% - 4rem);"
-    >
+
+    <section class="flex max-h-full relative" style="height: calc(100% - 4rem);">
       <!-- left sidebar -->
       <side-nav class="relative md:block">
         <list-lang
@@ -82,6 +78,7 @@ export default {
   },
   methods: {
     getPinnedItems() {
+      // default pinned items
       let jsondata = [
         {
           id: '01',
@@ -114,8 +111,7 @@ export default {
       }
     },
     makeReqToApiForContent(lang) {
-      // active on language page page load
-
+      // active on contentChild route change
       // get all the content of the selected language
       // fetch(`https://raw.githubusercontent.com/hasansujon786/the-doc/master/data/lang/${lang}.json`)
       fetch(`/data/lang/${lang}.json`)
@@ -141,6 +137,7 @@ export default {
       }
     },
     makeAllContentsToAnArr() {
+      // (i) active after getting response for selected lang
       // reset all previous indexes
       this.allitemArr = []
       // (i) for search Index make all random data to array
@@ -156,7 +153,6 @@ export default {
     }
   },
   created() {
-    // this.makeReqToLangList()
     this.getPinnedItems()
   }
 }

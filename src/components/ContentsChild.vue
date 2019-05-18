@@ -1,8 +1,7 @@
 <template>
-  <!-- bg-gray-110 -->
   <section class="contents-child pb-12 min-h-full md:px-5">
     <div v-if="response.title">
-      <!-- title -->
+      <!-- lang title -->
       <div class="text-center font-mono pt-6">
         <h1 class="text-4xl text-gray-900 tracking-tighter">{{ response.title }}</h1>
         <p class="text-sm font-bold tracking-wide text-gray-600 mb-2">{{ response.description }}</p>
@@ -37,9 +36,7 @@
           >
             {{ item.description }}
           </p>
-          <prism contenteditable class="code__block rounded-lg" :language="item.type">{{
-            item.code
-          }}</prism>
+          <prism contenteditable class="rounded-lg" :language="item.type">{{ item.code }}</prism>
         </div>
       </div>
     </div>
@@ -78,29 +75,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .contents-child {
   background-color: var(--bg-deem);
 }
 .code {
   background-color: var(--bg-light);
   max-width: 720px;
-  &:hover &__block::-webkit-scrollbar-thumb {
-    background-color: rgb(194, 194, 194);
-  }
-  &__block {
-    // background-color: rgb(255, 251, 251);
-    &::-webkit-scrollbar {
-      height: 3px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #e2e8f0;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #e2e8f0;
-    }
-  }
 }
 </style>

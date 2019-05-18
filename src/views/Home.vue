@@ -5,7 +5,7 @@
         <Logo />
       </router-link>
       <!-- divide -->
-      <router-link :to="{ name: 'contents-child', params: { lang: this.appRoute } }">
+      <router-link :to="{ name: 'contents-child', params: { lang: this.openBtnRoute } }">
         <ui-button :rounded="false" color="blue">Open app</ui-button>
       </router-link>
     </nav>
@@ -76,8 +76,7 @@ export default {
     return {
       allLanguags: [],
       searchQuery: '',
-      appRoute: 'react',
-      user: 'hasna'
+      openBtnRoute: 'html'
     }
   },
   computed: {
@@ -89,18 +88,16 @@ export default {
   },
   methods: {
     gotoFirstResult() {
+      // (i) active on form submit
       if (!this.searchQuery || !this.filteredLangList.length) return
 
       this.$router.push({ name: 'contents-child', params: { lang: this.filteredLangList[0].slug } })
     },
     getPinnedItems() {
+      // (i) active on app load
+      // set open btn route if there is pinnedItems
       const pinnedItems = JSON.parse(localStorage.getItem('pinnedItems'))
-      if (pinnedItems && pinnedItems.length) {
-        this.appRoute = pinnedItems[0].slug
-      }
-    },
-    lognow(val) {
-      console.log('lognow ', val)
+      pinnedItems && pinnedItems.length ? (this.openBtnRoute = pinnedItems[0].slug) : ''
     }
   },
   components: {
@@ -128,7 +125,6 @@ export default {
   background-image: url('~@/assets/img/bg-bottom.png');
   background-repeat: no-repeat;
   background-position: bottom center;
-  // background-size: auto;
 }
 nav {
   background-color: var(--bg-light);

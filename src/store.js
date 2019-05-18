@@ -11,11 +11,11 @@ export default new Vuex.Store({
     _changeTheme(state) {
       state.isLightTheme = !state.isLightTheme
       localStorage.setItem('isLightTheme', state.isLightTheme)
-      // console.log(state.isLightTheme)
     },
-    _setThemeToLight(state, payload) {
+    _onAppLoadsetTheme(state, payload) {
+      // active on app load
       state.isLightTheme = payload
-      console.log('_setThemeToLight', payload)
+      // console.log('_setThemeToLight', payload)
     }
   },
   actions: {
@@ -24,9 +24,12 @@ export default new Vuex.Store({
     },
     onAppLoadSetThemeToUserChoice({ commit }) {
       const localTheme = JSON.parse(localStorage.getItem('isLightTheme'))
-      console.log('localTheme', localTheme)
-
-      localTheme == null ? commit('_setThemeToLight', false) : commit('_setThemeToLight', localTheme)
+      // null = user is new or user haven't changed theme yet
+      localTheme == null
+        ? commit('_onAppLoadsetTheme', false)
+        : commit('_onAppLoadsetTheme', localTheme)
+      // false will make the theme to dark (default)
+      // if not null set theme form localStorage
     }
   },
   getters: {

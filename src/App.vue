@@ -24,19 +24,12 @@ export default {
 
 <style lang="scss">
 html {
-  // overflow: hidden;
+  overflow-y: hidden;
 }
 .search-text-highlight {
   background: #68d391;
   color: white;
 }
-
-@supports (scrollbar-width: thin) {
-  .scrolable {
-    scrollbar-width: thin;
-  }
-}
-
 .dbug {
   *:not(path):not(g) {
     /*! debug.css | MIT License | zaydek.github.com/debug.css */
@@ -47,25 +40,22 @@ html {
     box-shadow: none !important;
   }
 }
-
+// used on icon btns
 .on-active-gray {
   &:active {
     background: #e2e8f071;
   }
 }
-
 .disable-select {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-
 .abs-center-h {
   top: 50%;
   transform: translateY(-50%);
 }
-
 .transition-fast {
   transition: all 0.1s ease-in-out;
 }
@@ -89,7 +79,11 @@ html {
     }
   }
 }
-
+@supports (scrollbar-width: thin) {
+  .scrolable {
+    scrollbar-width: thin;
+  }
+}
 /* --------------- Light mode --------------- */
 .app[data-theme='light'] {
   --bg-deem-100: #f8f8f8;
