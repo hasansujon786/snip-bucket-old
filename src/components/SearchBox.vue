@@ -1,77 +1,13 @@
 <template>
   <form @submit.prevent="search" class="relative w-2/3 lg:w-1/2 z-50">
-    <input
-      class="input border z-10 relative text-sm py-3 px-6 transition-fast w-full outline-none rounded-full bg-gray-110 shadow focus:shadow-outline"
-      placeholder='Search the docs (Press " Ctrl + / " to focus)'
-      type="text"
+    <search-input
+      class="input z-20"
+      placeholder='Search here (Press "/" to focus)'
       v-model="searchQuery"
-      ref="searchInput"
-    />
-    <i
-      class="search-icon opacity-25  text-gray-900 stroke-current mr-5 right-0 absolute z-30 abs-center-h"
-    >
-      <svg width="21" height="21" viewBox="0 0 21 21">
-        <g transform="translate(-408.986 -30.5)">
-          <circle
-            cx="8.768"
-            cy="8.768"
-            r="8.768"
-            transform="translate(409.486 31)"
-            fill="none"
-            stroke-miterlimit="10"
-            stroke-width="1"
-          />
-          <path
-            d="M.5.5,5.156,5.157"
-            transform="translate(424.33 45.844)"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="1"
-          />
-        </g>
-      </svg>
-    </i>
-
-    <!-- btn-cross -->
-    <button
-      type="button"
-      @click="searchQuery = ''"
-      class="clear-btn bg-transpaent mr-3 flex items-center justify-center abs-center-h right-0 rounded-full hidden absolute z-10 w-8 on-active-gray h-8 text-gray-900  focus:outline-none"
-    >
-      <svg
-        class="fill-current stroke-current"
-        xmlns="http://www.w3.org/2000/svg"
-        width="13.414"
-        height="13.414"
-        viewBox="0 0 13.414 13.414"
-      >
-        <g transform="translate(-5.293 -5.293)">
-          <path
-            d="M.5,0V16.971"
-            transform="translate(17.646 5.646) rotate(45)"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="1"
-          />
-          <path
-            d="M0,.5H16.971"
-            transform="translate(6.354 5.646) rotate(45)"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-miterlimit="10"
-            stroke-width="1"
-          />
-        </g>
-      </svg>
-    </button>
-
+    ></search-input>
     <div
-      class="result-bar scrolable absolute border overflow-y-scroll -mt-4 rounded-t-none text-gray-600 rounded-lg w-full shadow hidden"
+      v-show="searchQuery"
+      class="result-bar border text-gray-600 bg-white absolute w-full rounded top-0 mt-5"
     >
       <a
         v-for="(item, i) in filteredArray"
@@ -88,6 +24,8 @@
 </template>
 
 <script>
+import SearchInput from '@/components/SearchInput.vue'
+
 export default {
   name: 'searchBox',
   data() {
@@ -138,53 +76,17 @@ export default {
       })
     }
   },
-  mounted() {
-    document.addEventListener('keyup', this.focusOnSearchBar)
-  },
-  destroyed() {
-    document.removeEventListener('keyup', this.focusOnSearchBar)
+  components: {
+    searchInput: SearchInput
   }
 }
 </script>
 
 <style lang="scss" scoped>
-input:not(:placeholder-shown) {
-  & ~ .result-bar {
-    display: block;
-  }
-  & ~ button {
-    display: inline-flex;
-  }
-
-  & ~ .search-icon {
-    display: none;
-  }
-}
-
 .result-bar {
-  max-height: 250px;
-  a:first-child {
-    margin-top: 1rem;
-  }
-}
-
-.clear-btn {
-  &:hover,
-  &:focus {
-    color: red !important;
-  }
-}
-
-// theme //
-.result-bar,
-.input {
   background-color: var(--bg-deem-100);
-  @apply text-gray-600;
-}
-
-.app[data-theme='dark'] {
-  .input {
-    @apply text-gray-400;
+  a:first-child {
+    margin-top: 2rem;
   }
 }
 </style>

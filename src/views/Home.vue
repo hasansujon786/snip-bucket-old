@@ -24,38 +24,10 @@
           @submit.prevent="gotoFirstResult"
           class="relative text-center mt-12 max-w-xl text-gray-600 mx-auto w-full"
         >
-          <input
-            type="text"
-            class="search-input border w-full rounded-full font-semibold py-3 px-6 shadow transition-fast focus:outline-none focus:shadow-outline"
-            placeholder="Search here"
+          <search-input
+            placeholder='Search here (Press "/" to focus)'
             v-model="searchQuery"
-          />
-          <i
-            class="search-icon opacity-50 text-gray-900 stroke-current mr-5 right-0 absolute z-30 abs-center-h"
-          >
-            <svg width="21" height="21" viewBox="0 0 21 21">
-              <g transform="translate(-408.986 -30.5)">
-                <circle
-                  cx="8.768"
-                  cy="8.768"
-                  r="8.768"
-                  transform="translate(409.486 31)"
-                  fill="none"
-                  stroke-miterlimit="10"
-                  stroke-width="1"
-                />
-                <path
-                  d="M.5.5,5.156,5.157"
-                  transform="translate(424.33 45.844)"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-miterlimit="10"
-                  stroke-width="1"
-                />
-              </g>
-            </svg>
-          </i>
+          ></search-input>
         </form>
       </div>
     </header>
@@ -97,13 +69,15 @@
 <script>
 import axios from 'axios'
 import Logo from '@/components/Logo.vue'
+import SearchInput from '@/components/SearchInput.vue'
 export default {
   name: 'home',
   data() {
     return {
       allLanguags: [],
       searchQuery: '',
-      appRoute: 'react'
+      appRoute: 'react',
+      user: 'hasna'
     }
   },
   computed: {
@@ -124,10 +98,14 @@ export default {
       if (pinnedItems && pinnedItems.length) {
         this.appRoute = pinnedItems[0].slug
       }
+    },
+    lognow(val) {
+      console.log('lognow ', val)
     }
   },
   components: {
-    Logo
+    Logo,
+    searchInput: SearchInput
   },
   created() {
     axios
@@ -155,8 +133,7 @@ export default {
 nav {
   background-color: var(--bg-light);
 }
-.card-lang,
-.search-input {
+.card-lang {
   background-color: var(--bg-deem-100);
 }
 </style>
