@@ -1,6 +1,6 @@
 <template>
-  <section class="home min-h-screen scrolable overflow-y-scroll">
-    <nav class="flex justify-between items-center px-3 h-16 shadow">
+  <section class="home min-h-screen h-screen scrolable overflow-y-scroll">
+    <nav class="flex sticky top-0 z-50 justify-between items-center px-3 h-16 shadow">
       <router-link to="/" class="">
         <Logo />
       </router-link>

@@ -3,19 +3,24 @@
   "title": "JavaScript",
   "slug": "css",
   "description": "Usefull CSS cheetsheet",
-  "theme": "#42A5F5",
+  "theme": "#F7DF1E",
   "topics": [
     {
-      "title": "Directives",
+      "title": "Copy text with javascript",
       "items": [
         {
-          "description": "Flex center",
-          "code": ".flex-center {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}",
+          "description": "Copy to clipboard",
+          "code": "const copyToClipboard = str => {\n  const el = document.createElement('textarea');\n  el.value = str;\n  document.body.appendChild(el);\n  el.select();\n  document.execCommand('copy');\n  document.body.removeChild(el);\n};",
           "type": "css"
         },
         {
-          "description": "HTML attribute binding",
-          "code": "v-bind",
+          "description": "Copy to clipboard (Making the appended element invisible)",
+          "code": "const copyToClipboard = str => {\n  const el = document.createElement('textarea');\n  el.value = str;\n  el.setAttribute('readonly', '');\n  el.style.position = 'absolute';\n  el.style.left = '-9999px';\n  document.body.appendChild(el);\n  el.select();\n  document.execCommand('copy');\n  document.body.removeChild(el);\n};",
+          "type": "javascript"
+        },
+        {
+          "description": "Copy to clipboard (Saving and restoring the original document’s selection)",
+          "code": "const copyToClipboard = str => {\n  const el = document.createElement('textarea');  // Create a <textarea> element\n  el.value = str;                                 // Set its value to the string that you want copied\n  el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof\n  el.style.position = 'absolute';                 \n  el.style.left = '-9999px';                      // Move outside the screen to make it invisible\n  document.body.appendChild(el);                  // Append the <textarea> element to the HTML document\n  const selected =            \n    document.getSelection().rangeCount > 0        // Check if there is any content selected previously\n      ? document.getSelection().getRangeAt(0)     // Store selection if found\n      : false;                                    // Mark as false to know no selection existed before\n  el.select();                                    // Select the <textarea> content\n  document.execCommand('copy');                   // Copy - only works as a result of a user action (e.g. click events)\n  document.body.removeChild(el);                  // Remove the <textarea> element\n  if (selected) {                                 // If a selection existed before copying\n    document.getSelection().removeAllRanges();    // Unselect everything on the HTML document\n    document.getSelection().addRange(selected);   // Restore the original selection\n  }\n};",
           "type": "javascript"
         }
       ]
