@@ -1,15 +1,19 @@
 <template>
   <div class="listTopic" style="width: 220px;">
     <section class="" v-for="(topic, i) in topics" :key="i">
-      <input class="hidden" type="checkbox" checked :id="topic.title + 'check-box'" />
+      <input class="hidden" type="checkbox" :id="topic.title + 'check-box'" />
       <!-- label block -->
       <label
-        class="label font-semibold text-sm disable-select text-gray-900 cursor-pointer p-3 border-b border-t flex justify-between items-center hover:bg-gray-200"
+        :style="{ color: theme }"
+        class="flex justify-between items-center
+        label font-semibold text-sm disable-select
+        p-3 border-b border-t border-app-border
+        hover:bg-gray-200 cursor-pointer"
         :for="topic.title + 'check-box'"
       >
         {{ topic.title }}
-        <i class="arrow-down">
-          <svg class="inline-block stroke-current" width="17" height="8" viewBox="0 0 17 8">
+        <i class="arrow-down" style="transform: rotate(-90deg);">
+          <svg class="stroke-current" width="17" height="8" viewBox="0 0 17 8">
             <g transform="translate(-4.5 -8.5)">
               <path
                 d="M0,0,8,7l8-7"
@@ -18,7 +22,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-miterlimit="10"
-                stroke-width="1"
+                stroke-width="2"
               />
             </g>
           </svg>
@@ -26,17 +30,20 @@
       </label>
 
       <!-- links -->
-      <ul class="link-ul text-sm text-gray-600">
+      <ul class="link-ul text-sm text-gray-500">
         <li class="" v-for="(item, i) in topic.items" :key="i">
           <a
-            class="link-a block border-l-4 pl-3 py-2"
+            @mouseover="addBorderOnHover"
+            @mouseout="removeBorderOnHover"
+            class="link-a pl-3 py-2 block border-l-4 border-transparent"
             :href="
               `#${item.description
                 .toLowerCase()
                 .split(' ')
                 .join('')}`
             "
-            >{{ item.description }}</a
+          >
+            &raquo; {{ item.description }}</a
           >
         </li>
       </ul>
@@ -54,6 +61,18 @@ export default {
     topics: {
       type: Array,
       default: () => []
+    },
+    theme: {
+      type: String,
+      default: '#2680EB'
+    }
+  },
+  methods: {
+    addBorderOnHover(e) {
+      e.target.style.borderColor = this.theme
+    },
+    removeBorderOnHover(e) {
+      e.target.style.borderColor = 'transparent'
     }
   }
 }
@@ -66,7 +85,7 @@ input[type='checkbox'] {
   }
 
   &:not(:checked) ~ label i.arrow-down {
-    transform: rotate(180deg);
+    transform: rotate(0deg) !important;
   }
 }
 .label {
@@ -76,10 +95,8 @@ input[type='checkbox'] {
   border-color: var(--bg-light) !important;
 }
 .link-a {
-  border-color: var(--bg-light) !important;
   &:hover {
     background-color: var(--bg-deem-100);
-    border-color: #68d391 !important;
   }
 }
 </style>

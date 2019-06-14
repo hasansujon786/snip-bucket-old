@@ -3,7 +3,7 @@
     <input
       type="text"
       ref="searchInput"
-      class="search-input border w-full rounded-full font-semibold py-3 px-6 shadow transition-fast focus:outline-none focus:shadow-outline"
+      class="search-input border border-app-border w-full rounded-full font-semibold py-3 px-6 shadow transition-fast focus:outline-none focus:shadow-outline"
       @input="updateOnIput($event.target.value)"
       v-bind="$attrs"
     />

@@ -6,11 +6,11 @@
         A effort to do something good
       </h2>
 
-      <div class="code my-6 mx-auto p-5 rounded shadow border">
+      <div class="code my-6 mx-auto p-5 rounded shadow border border-app-border">
         <textarea
           ref="textarea"
           v-model="code"
-          class="bg-gray-500 rounded-lg w-full p-3 border focus:outline-none"
+          class="bg-gray-500 rounded-lg w-full p-3 border border-app-border focus:outline-none"
           rows="10"
         ></textarea>
         <div class="flex items-center mt-3">

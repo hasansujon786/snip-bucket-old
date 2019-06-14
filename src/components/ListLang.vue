@@ -2,7 +2,7 @@
   <li class="listLanguage w-full" style="max-width: 220px;">
     <router-link
       :to="{ name: 'contents-child', params: { lang: slug } }"
-      class="border-b py-5 px-3 inline-flex items-center w-full"
+      class="border-b border-app-border py-5 px-3 inline-flex items-center w-full"
     >
       <figure class="w-10 h-10">
         <img

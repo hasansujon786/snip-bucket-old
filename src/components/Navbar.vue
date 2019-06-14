@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar bug w-full flex items-center justify-between bg-white h-16 pr-3">
+  <nav class="navbar w-full flex items-center justify-between bg-white h-16 pr-3">
     <section class="flex items-center">
       <!-- sideNav toggle button -->
       <button
@@ -52,7 +52,9 @@
       <slot></slot>
 
       <!-- Download button -->
-      <ui-button :rounded="false" color="blue">Manage</ui-button>
+      <ui-button :rounded="false" color="blue" @click="$router.push({ name: 'contents-default' })"
+        >Manage</ui-button
+      >
     </section>
   </nav>
 </template>
@@ -82,6 +84,7 @@ export default {
     }
   },
   methods: {},
+
   components: {
     Logo
   }

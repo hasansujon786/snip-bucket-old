@@ -7,7 +7,7 @@
     ></search-input>
     <div
       v-show="searchQuery"
-      class="result-bar border text-gray-600 bg-white absolute w-full rounded top-0 mt-5"
+      class="result-bar border border-app-border text-gray-600 bg-white absolute w-full rounded top-0 mt-5"
     >
       <a
         v-for="(item, i) in filteredArray"

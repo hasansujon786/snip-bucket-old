@@ -1,7 +1,7 @@
 <template>
   <section class="default-layout max-h-screen h-screen">
     <!-- Navbar -->
-    <nav-bar v-if="true" :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-gray-300">
+    <nav-bar v-if="true" :handleShrinkMenu="handleShrinkMenu" class="border-b-2 border-app-border">
       <search-box class="hidden md:block" :allitemArr="allitemArr"></search-box>
       <theme-button></theme-button>
     </nav-bar>
@@ -36,7 +36,7 @@
 
       <!-- right sidebar -->
       <side-nav class="lg:block">
-        <list-topic :topics="response.topics"></list-topic>
+        <list-topic :topics="response.topics" :theme="response.theme"></list-topic>
       </side-nav>
     </section>
   </section>
@@ -60,7 +60,6 @@ export default {
       allLanguags: [],
       response: {},
       isLeftMenuShrink: false,
-      searchArr: ['one', 'two', 'there', 'four', 'five', 'six'],
       searchQuery: '',
       allitemArr: [],
       showPopup: false

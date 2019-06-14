@@ -48,7 +48,7 @@
             <!-- card -->
             <router-link
               :to="{ name: 'contents-child', params: { lang: lang.slug } }"
-              class="card-lang inline-flex text-gray-600 justify-center items-center flex-col w-40 h-48 p-2 border text-center shadow hover:shadow-lg"
+              class="card-lang inline-flex text-gray-600 justify-center items-center flex-col w-40 h-48 p-2 border border-app-border text-center shadow hover:shadow-lg"
             >
               <figure class="w-16 h-16">
                 <img

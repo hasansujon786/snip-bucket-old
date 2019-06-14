@@ -1,5 +1,5 @@
 <template>
-  <div class="side-nav border-gray-300 flex hidden">
+  <div class="side-nav border-app-border flex hidden">
     <ul class="nav-items scrolable overflow-y-scroll h-full overflow-x-hidden">
       <slot></slot>
     </ul>

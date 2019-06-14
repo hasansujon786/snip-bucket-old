@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sideNav-actions text-gray-500 absolute border-r-3 border bg-white bottom-0 w-full flex flex-col justify-center items-start py-6 pl-5"
+    class="sideNav-actions text-gray-500 absolute border-r-3 border border-app-border bg-white bottom-0 w-full flex flex-col justify-center items-start py-6 pl-5"
   >
     <button @click="showPinMenu(true)">
       <svg

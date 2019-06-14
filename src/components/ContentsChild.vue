@@ -13,7 +13,7 @@
 
       <!-- code block -->
       <div
-        class="code my-6 mx-auto p-5 rounded shadow border"
+        class="code my-6 mx-auto p-5 rounded shadow border border-app-border"
         v-for="(topic, i) in response.topics"
         :key="i"
       >

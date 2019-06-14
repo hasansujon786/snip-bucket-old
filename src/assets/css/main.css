@@ -3,3 +3,40 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.dbug *:not(path):not(g) {
+  /*! debug.css | MIT License | zaydek.github.com/debug.css */
+  color: hsla(210, 100%, 100%, 0.9) !important;
+  background: hsla(210, 100%, 50%, 0.5) !important;
+  outline: solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
+
+  box-shadow: none !important;
+}
+
+html {
+  overflow-y: hidden;
+}
+.search-text-highlight {
+  background: #2680eb;
+  color: white;
+}
+/* // used on icon btns */
+.on-active-gray:active {
+  background: #e2e8f071;
+}
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.abs-center-h {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.transition-fast {
+  transition: all 0.1s ease-in-out;
+}
+.border-r-3 {
+  border-right-width: 3px;
+}

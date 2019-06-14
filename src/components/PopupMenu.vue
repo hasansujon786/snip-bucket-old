@@ -2,12 +2,15 @@
   <section
     class="popup__bg absolute flex justify-center items-center top-0 left-0 w-full h-full z-50"
   >
-    <div style="width: 550px" class="card-bg border rounded max-w-lg shadow-lg p-6 text-gray-600">
+    <div
+      style="width: 550px"
+      class="card-bg border border-app-border rounded max-w-lg shadow-lg p-6 text-gray-600"
+    >
       <input
         type="text"
         v-model="searchQuery"
         placeholder="Search here"
-        class="border-b-2 mb-3 w-full font-semibold text-gray-600 py-1 px-1 focus:outline-none"
+        class="border-b-2 border-app-border mb-3 w-full font-semibold text-gray-600 py-1 px-1 focus:outline-none"
       />
       <div>
         <p class="text-sm mb-2 text-gray-700 font-semibold">
@@ -15,10 +18,10 @@
         </p>
 
         <!-- all lang list -->
-        <ul class="h-40 border overflow-y-scroll scrolable">
+        <ul class="h-64 border-2 border-app-border overflow-y-scroll scrolable">
           <li
             @click="addToList(lang)"
-            class="px-2 py-1 cursor-pointer border-b hover:bg-gray-200"
+            class="px-2 py-1 cursor-pointer border-b border-app-border hover:bg-gray-200"
             v-for="(lang, i) in filteredLangList"
             :key="i"
           >
@@ -30,7 +33,7 @@
         <ul class="my-4 text-center">
           <!-- pill -->
           <li
-            class="pill inline-flex cursor-pointer justify-center items-center text-sm  py-2 px-4 mb-2 border rounded-full"
+            class="pill border-app-border inline-flex cursor-pointer justify-center items-center text-sm  py-2 px-4 mb-2 border rounded-full"
             v-for="(lang, ii) in selectedLanguags"
             :key="ii"
             @click="removeLang(ii)"

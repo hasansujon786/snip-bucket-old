@@ -8,6 +8,7 @@ module.exports = {
 
       black: '#000',
       white: '#fff',
+      'app-border': 'var(--app-border)',
 
       gray: {
         110: '#F8F8F8',
