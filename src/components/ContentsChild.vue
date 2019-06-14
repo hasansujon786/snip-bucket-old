@@ -51,7 +51,8 @@
 
 <script>
 import 'prismjs'
-import 'prismjs/themes/prism.css'
+// import 'prismjs/themes/prism.css'
+import 'prismjs/themes/prism-coy.css'
 import Prism from 'vue-prism-component'
 
 export default {
@@ -81,7 +82,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .contents-child {
   background-color: var(--bg-deem);
 }
