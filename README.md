@@ -1,4 +1,4 @@
-# cbook
+# snip-bucket
 
 ## Project setup
 ```
